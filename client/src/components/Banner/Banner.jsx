@@ -59,7 +59,7 @@ const Banner = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <button className="bg-gradient-to-r from-primary to-secondary text-white py-2 px-4 rounded-full shadow-xl hover:shadow-md">
+                                    <button className="bg-secondary text-white py-2 px-4 rounded-full shadow-xl hover:shadow-md">
                                         Закажи сейчас!
                                     </button>
                                 </div>

@@ -1,14 +1,15 @@
 const router = require("express").Router();
-const verifyToken = require("../middleware/verifyToken");
+// const verifyToken = require("../middleware/verifyToken");
 const {
-  getCart,
-  addItem,
-  deleteItem,
-  increaseItemQuantity,
-  decreaseItemQuantity,
+    getCart,
+    addItem,
+    deleteItem,
+    increaseItemQuantity,
+    decreaseItemQuantity,
 } = require("../controllers/cart.controller");
 
-router.use(verifyToken);
+// router.use(verifyToken);
+
 // get cart items
 router.route("/").get(getCart);
 

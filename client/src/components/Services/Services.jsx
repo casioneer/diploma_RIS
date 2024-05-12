@@ -1,75 +1,3 @@
-/*
-
-import React from "react";
-import Img2 from "../../assets/biryani2.png"
-
-const ServicesData = [
-    {
-        id: 1,
-        img: Img2,
-        name: "Bryani",
-        description:
-            "Lorem dfngjdfn dfhsghstd fsgjhadthd sdtghdfgh dsghgrtj fs tdhadhaerd",
-    },
-    {
-        id: 2,
-        img: Img2,
-        name: "Chicken",
-        description:
-            "Lorem dfngjdfn dfhsghstd fsgjhadthd sdtghdfgh dsghgrtj fs tdhadhaerd",
-    },
-    {
-        id: 3,
-        img: Img2,
-        name: "Coffee",
-        description:
-            "Lorem dfngjdfn dfhsghstd fsgjhadthd sdtghdfgh dsghgrtj fs tdhadhaerd",
-    },
-];
-
-const Services = () => {
-    return (
-        <>
-            <div className="py-10">
-                <div className="container">
-                    
-                    <div className="text-center mb-20 max-w-[400px] mx auto">
-                        <p className="text-sm bg-clip-text
-                        text-transparent bg-gradient-to-r
-                        from-primary to-secondary">
-                            Our Services
-                        </p>
-                        <h1 className="text-3xl
-                        font-bold">Services</h1>
-                        <p className="text-xs text-gray-400">
-                            {" "}
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Minus fuga quidem temporibus, fugit voluptatem illo rem,
-                            sequi ab enim totam iure ea dolorem inventore
-                            necessitatibus quasi optio, consequuntur beatae rerum.
-                        </p>
-                    </div>
-                    
-                    <div>
-                        {
-                            ServicesData.map(({ id, img, name, description }) => {
-                                return <div key={id}>
-                                    <div>
-                                        <img src={img} alt="" />
-                                    </div>
-
-                                </div>
-                            })
-                        }
-                    </div>
-                </div>
-            </div>
-        </>
-    );
-};
-
-export default Services; */
-
 import React from "react";
 import Img from "../../assets/pizza-pepperoni.png";
 import Img2 from "../../assets/pizza-margarita.png";
@@ -166,7 +94,7 @@ const Services = () => {
                                 </div>
                                 <div className="text-center flex items-center justify-center p-4">
                                     <h1 className="pr-2">{service.price}</h1>
-                                    <button className=" bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white py-1 px-4 rounded-full flex items-center gap-3">
+                                    <button className=" bg-secondary hover:scale-105 duration-200 text-white py-1 px-4 rounded-full flex items-center gap-3">
                                         Добавить
                                     </button>
                                 </div>
