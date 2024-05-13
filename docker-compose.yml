@@ -57,7 +57,7 @@ services:
     volumes:
       - ./db:/var/lib/postgresql/data
       # When the PostgreSQL container is started it will run any scripts
-      # provided in the `docker-entrypoint-initdb.d` directory
+      # provided in the `docker-entrypoint-initdb.d` director
       # seed the database with the init.sql file
       - ./server/config/init.sql:/docker-entrypoint-initdb.d/init.sql
   pgadmin:

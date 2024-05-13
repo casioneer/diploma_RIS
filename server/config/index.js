@@ -1,6 +1,13 @@
 require("dotenv").config();
 const { Pool } = require("pg");
 
+// Выводим значения переменных окружения
+console.log(`User: ${process.env.POSTGRES_USER}`);
+console.log(`Password: ${process.env.POSTGRES_PASSWORD}`);
+console.log(`Host: ${process.env.POSTGRES_HOST}`);
+console.log(`Port: ${process.env.POSTGRES_PORT}`);
+console.log(`Node Environment: ${process.env.NODE_ENV}`);
+
 const isProduction = process.env.NODE_ENV === "production";
 const database =
   process.env.NODE_ENV === "test"
