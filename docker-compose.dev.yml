@@ -1,66 +1,60 @@
-version: "3.8"
-
+version: "3.9"
 services:
-  server:
-    image: diploma-ris-server
-    container_name: diploma-ris-server
-    build:
-      context: ./server
-      dockerfile: Dockerfile.dev
-    # restart: always
-    env_file:
-      - ./server/.env
-    environment:
-      - POSTGRES_HOST=diploma-ris-db
-      - POSTGRES_DB=pernstore
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=adminuser
-      # - POSTGRES_PORT=7890
-    volumes:
-      - ./server:/usr/src/app
-      - /usr/src/app/node_modules
-    ports:
-      - 9000:9000
-    depends_on:
-      - database
   client:
-    image: diploma-ris-client
-    container_name: diploma-ris-client
-    restart: unless-stopped
-    env_file:
-      - ./client/.env
+    image: client
     build:
       context: ./client
       dockerfile: Dockerfile.dev
+    init: true
+    volumes:
+      - type: bind
+        source: ./client
+        target: /usr/src/app/
+      - type: volume
+        target: /usr/src/app/node_modules
+      - type: bind
+        source: ./client/vite.config.js
+        target: /usr/src/app/vite.config.js
+    networks:
+      - frontend
     ports:
       - 3000:3000
+  server:
+    image: server
+    build:
+      context: ./server
+      dockerfile: Dockerfile.dev
+      # target: dev
+    init: true
     volumes:
-      - ./client:/usr/src/app
-      - /usr/src/app/node_modules
+      - type: bind
+        source: ./server
+        target: /usr/src/app/
+      - type: volume
+        target: /usr/src/app/node_modules
     depends_on:
-      - server
-  database:
-    container_name: diploma-ris-db
-    image: postgres
-    restart: always
-    env_file:
-      - ./server/.env
+      - db
     environment:
-      - POSTGRES_PASSWORD=adminuser
+      - DATABASE_URL=postgres://postgres:foobarbaz@db:5432/postgres
+    networks:
+      - frontend
+      - backend
     ports:
-      - 7890:5432
-    volumes:
-      - ./db:/var/lib/postgresql/data
-      - ./server/config/init.sql:/docker-entrypoint-initdb.d/init.sql
-  pgadmin:
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "dhatguy@mail.com"
-      PGADMIN_DEFAULT_PASSWORD: "qwertyuiop"
-    ports:
-      - "16543:80"
-    depends_on:
-      - database
-volumes:
+      - 9000:9000
+    restart: unless-stopped
   db:
-    driver: local
+    image: postgres:15.1-alpine
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./server/config/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - POSTGRES_PASSWORD=foobarbaz
+    networks:
+      - backend
+    ports:
+      - 5432:5432
+volumes:
+  pgdata:
+networks:
+  frontend:
+  backend:
