@@ -24,7 +24,7 @@ import Testimonial from "components/Testimonial/Testimonial"
 import AppStore from "components/AppStore/AppStore"
 import Footer from "components/Footer/Footer"
 
-// import App1 from "./App1"
+import useFetch from "hooks/useFetch";
 
 import { Suspense } from "react";
 import { Toaster } from "react-hot-toast";
@@ -32,12 +32,36 @@ import { Route, Routes } from "react-router-dom";
 // import { ProtectedRoute } from "routes/protected.route";
 
 function App() {
+
+  // useState ID
+
+  const { data: products, isPending: productsIsPending, error: productsError } = useFetch({
+    url: 'http://localhost:9000/api/product',
+    //url: 'http://172.24.158.120:9000/api/product',
+    defaultData: [],
+    trigger: false
+  });
+
+  // const { data: product, isPending: productIsPending, error: productError } = useFetch({
+  //     // url: 'http://localhost:9000/api/product?id=1',
+  //     url: `http://172.24.158.120:9000/api/product?id=${ID}`,
+  //     defaultData: [],
+  //     trigger: false
+  // });
+
+  // handler(event) { event.target.id }
+
   return (
     <>
       <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
         <Navbar />
         <Hero />
-        <Services />
+        <Services
+          ServicesData={products}
+          isPending={productsIsPending}
+          error={productsError}
+        // onPress={handler()}
+        />
         <Banner />
         <AppStore />
         <Testimonial />

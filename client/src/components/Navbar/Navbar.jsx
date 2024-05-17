@@ -21,6 +21,7 @@ const Menu = [
     },
 ];
 const Navbar = () => {
+
     return (
         <>
             <div className="shadow-md bg-white dark:bg-gray-900 dark:text-white duration-200">
