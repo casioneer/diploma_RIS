@@ -24,12 +24,17 @@ import Testimonial from "components/Testimonial/Testimonial"
 import AppStore from "components/AppStore/AppStore"
 import Footer from "components/Footer/Footer"
 
+import ProductDetails from "pages/ProductDetails"
+import ProductPage from "pages/ProductPage"
+
 import useFetch from "hooks/useFetch";
 
 import { Suspense } from "react";
 import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
 // import { ProtectedRoute } from "routes/protected.route";
+
+import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
 
@@ -51,56 +56,63 @@ function App() {
 
   // handler(event) { event.target.id }
 
+
+
+
   return (
-    <>
-      <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
-        <Navbar />
-        <Hero />
-        <Services
-          ServicesData={products}
-          isPending={productsIsPending}
-          error={productsError}
-        // onPress={handler()}
-        />
-        <Banner />
-        <AppStore />
-        <Testimonial />
-        <Footer />
 
-      </div>
-    </>
-    //     <Suspense
-    //       fallback={
-    //         <Layout>
-    //           <Spinner size={100} />
-    //         </Layout>
-    //       }
-    //     >
+    <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
+      <Navbar />
+      <Hero />
+      <Services
+        ServicesData={products}
+        isPending={productsIsPending}
+        error={productsError}
+      />
+      <Routes>
+        <Route path="/product/:id"
+          element={<ProductDetails />} />
+      </Routes>
+      <Banner />
+      <AppStore />
+      <Testimonial />
+      <Footer />
+    </div>
 
-    // {/* 
-    //       <Routes>
-    //         <Route path="/" element={<Test />}/>
-    //       </Routes> */}
-    //       {/* <Toaster position="top-right" />
-    //       <Routes>
-    //         <Route element={<ProtectedRoute />}>
-    //           <Route path="/profile" element={<Account />} />
-    //           <Route path="/cart/checkout" element={<Checkout />} />
-    //           <Route path="/cart/success" element={<Confirmation />} />
-    //           <Route path="/orders" element={<Orders />} />
-    //           <Route path="/orders/:id/" element={<OrderDetails />} />
-    //         </Route>
-
-    //         <Route path="/signup" element={<Register />} />
-    //         <Route path="/login" element={<Login />} />
-    //         <Route index element={<ProductList />} />
-    //         <Route path="/products/:slug/" element={<ProductDetails />} />
-    //         <Route path="/cart" element={<Cart />} />
-    //         <Route path="/reset-password" element={<ResetPassword />} />
-    //         <Route path="*" element={<NotFound />}></Route>
-    //       </Routes> */}
-    //     </Suspense>
   );
+
+  //     <Suspense
+  //       fallback={
+  //         <Layout>
+  //           <Spinner size={100} />
+  //         </Layout>
+  //       }
+  //     >
+
+  // {/* 
+  //       <Routes>
+  //         <Route path="/" element={<Test />}/>
+  //       </Routes> */}
+  //       {/* <Toaster position="top-right" />
+  //       <Routes>
+  //         <Route element={<ProtectedRoute />}>
+  //           <Route path="/profile" element={<Account />} />
+  //           <Route path="/cart/checkout" element={<Checkout />} />
+  //           <Route path="/cart/success" element={<Confirmation />} />
+  //           <Route path="/orders" element={<Orders />} />
+  //           <Route path="/orders/:id/" element={<OrderDetails />} />
+  //         </Route>
+
+  //         <Route path="/signup" element={<Register />} />
+  //         <Route path="/login" element={<Login />} />
+  //         <Route index element={<ProductList />} />
+  //         <Route path="/products/:slug/" element={<ProductDetails />} />
+  //         <Route path="/cart" element={<Cart />} />
+  //         <Route path="/reset-password" element={<ResetPassword />} />
+  //         <Route path="*" element={<NotFound />}></Route>
+  //       </Routes> */}
+  //     </Suspense>
+
 }
 
 export default App;

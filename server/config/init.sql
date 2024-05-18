@@ -153,10 +153,10 @@ CREATE UNIQUE INDEX users_unique_lower_username_idx
     ON public.users (lower(username));
 
     -- Seed data for products table 
-INSERT INTO public.products (product_id, name, slug, price, description, image_url) VALUES (1, 'pizza-margarita', 'pizza-margarita', 450, 'Пицца с пармезаном, моцареллой и чеддером - все что нужно!', 'https://i.ibb.co/1L2srNz/pizza-maragarita.png');
-INSERT INTO public.products (product_id, name, slug, price, description, image_url) VALUES (2, 'pizza-pepperoni', 'pizza-pepperoni', 680, 'Пицца с пепперони и травами - остро и сочно!', 'https://i.ibb.co/znRGLsW/pizza-pepperoni.png');
-INSERT INTO public.products (product_id, name, slug, price, description, image_url) VALUES (3, 'pizza-mushrooms', 'pizza-mushrooms', 600, 'Шампиньоны, оливки и травы - непередоваемо свежо!', 'https://i.ibb.co/ZxLjTFV/pizza-mushrooms.png');
-INSERT INTO public.products (product_id, name, slug, price, description, image_url) VALUES (4, 'pizza-hawaii', 'pizza-hawaii', 550, 'Пицца с ананасами и свежими оващами - яркий вкус!', 'https://i.ibb.co/6tgNFRm/pizza-hawaii.png');
-INSERT INTO public.products (product_id, name, slug, price, description, image_url) VALUES (5, 'pizza-heart', 'pizza-heart', 660, 'Пицца в виде сердца - удиви своих близких!', 'https://i.ibb.co/QjXjRHW/pizza-heart.png');
-INSERT INTO public.products (product_id, name, slug, price, description, image_url) VALUES (6, 'pizza-4-cheese', 'pizza-4-cheeze', 610, 'Пицца с восьмью сырами, ведь сыра много не бывает!', 'https://i.ibb.co/Drd68F8/pizza-4-cheese.png');
+INSERT INTO public.products (product_id, name, slug, price, description, image_url) VALUES (1, 'Пицца Маргарита', 'pizza-margarita', 450, 'Пицца с пармезаном, моцареллой и чеддером - все что нужно!', 'https://i.ibb.co/1L2srNz/pizza-maragarita.png');
+INSERT INTO public.products (product_id, name, slug, price, description, image_url) VALUES (2, 'Пицца Пепперони', 'pizza-pepperoni', 680, 'Пицца с пепперони и травами - остро и сочно!', 'https://i.ibb.co/znRGLsW/pizza-pepperoni.png');
+INSERT INTO public.products (product_id, name, slug, price, description, image_url) VALUES (3, 'Пицца Грибная', 'pizza-mushrooms', 600, 'Шампиньоны, оливки и травы - непередоваемо свежо!', 'https://i.ibb.co/ZxLjTFV/pizza-mushrooms.png');
+INSERT INTO public.products (product_id, name, slug, price, description, image_url) VALUES (4, 'Пицца Гавайская', 'pizza-hawaii', 550, 'Пицца с ананасами и свежими оващами - яркий вкус!', 'https://i.ibb.co/6tgNFRm/pizza-hawaii.png');
+INSERT INTO public.products (product_id, name, slug, price, description, image_url) VALUES (5, 'Пицца Сердце', 'pizza-heart', 660, 'Пицца в виде сердца - удиви своих близких!', 'https://i.ibb.co/QjXjRHW/pizza-heart.png');
+INSERT INTO public.products (product_id, name, slug, price, description, image_url) VALUES (6, 'Пицца 4 Сыра', 'pizza-4-cheeze', 610, 'Пицца с восьмью сырами, ведь сыра много не бывает!', 'https://i.ibb.co/Drd68F8/pizza-4-cheese.png');
 
