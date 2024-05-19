@@ -15,7 +15,7 @@
 //   ResetPassword,
 // } from "pages";
 
-import Test from "./pages/Test";
+// import Test from "./pages/Test";
 import Navbar from "./components/Navbar/Navbar"
 import Hero from "./components/Hero/Hero"
 import Services from "components/Services/Services";
@@ -24,8 +24,9 @@ import Testimonial from "components/Testimonial/Testimonial"
 import AppStore from "components/AppStore/AppStore"
 import Footer from "components/Footer/Footer"
 
-import ProductDetails from "pages/ProductDetails"
-import ProductPage from "pages/ProductPage"
+import Nav from "components/Nav"
+
+// import ProductDetails from "pages/ProductDetails"
 
 import useFetch from "hooks/useFetch";
 
@@ -62,17 +63,13 @@ function App() {
   return (
 
     <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
-      <Navbar />
+      <Nav />
       <Hero />
       <Services
         ServicesData={products}
         isPending={productsIsPending}
         error={productsError}
       />
-      <Routes>
-        <Route path="/product/:id"
-          element={<ProductDetails />} />
-      </Routes>
       <Banner />
       <AppStore />
       <Testimonial />

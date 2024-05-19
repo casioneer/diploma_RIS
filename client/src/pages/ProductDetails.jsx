@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+/*import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 //import { useLocation } from 'react-router-dom';
 
@@ -31,4 +31,4 @@ const ProductDetails = () => {
     );
 };
 
-export default ProductDetails;
+export default ProductDetails; */
