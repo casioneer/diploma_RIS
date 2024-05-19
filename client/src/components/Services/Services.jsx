@@ -27,67 +27,6 @@ import { useState, useEffect } from "react";
 //     { product_id: 1, name: 'pizza-margarita', slug: 'pizza-margarita', price: 450, description: 'Пицца с пармезаном, моцареллой и чеддером - все что нужно!' }
 // ]
 
-// const ServicesData = [
-//     {
-//         product_id: 1,
-//         // img: Img2,
-//         name: "4 СЫРА",
-//         price: 450,
-//         description:
-//             "Пицца с пармезаном, моцареллой и чеддером - все что нужно!",
-//     },
-// ]
-
-// const ServicesData = [
-//     {
-//         id: 1,
-//         img: Img2,
-//         name: "4 СЫРА",
-//         description:
-//             "Пицца с пармезаном, моцареллой и чеддером - все что нужно!",
-//         price: "450 ₽",
-//     },
-//     {
-//         id: 2,
-//         img: Img,
-//         name: "ПЕППЕРОНИ",
-//         description:
-//             "Пицца с пепперони и травами - остро и сочно!",
-//         price: "680 ₽",
-//     },
-//     {
-//         id: 3,
-//         img: Img3,
-//         name: "ГРИБНАЯ",
-//         description:
-//             "Шампиньоны, оливки и травы - непередоваемо свежо!",
-//         price: "600 ₽",
-//     },
-//     {
-//         id: 4,
-//         img: Img4,
-//         name: "ГАВАЙСКАЯ",
-//         description:
-//             "Пицца с ананасами и свежими оващами - яркий вкус!",
-//         price: "550 ₽",
-//     },
-//     {
-//         id: 5,
-//         img: Img5,
-//         name: "СЕРДЦЕ",
-//         description:
-//             "Пицца в виде сердца - удиви своих близких!",
-//         price: "660 ₽",
-//     },
-//     {
-//         id: 6,
-//         img: Img6,
-//         name: "8 СЫРОВ",
-//         description:
-//             "Пицца с восьмью сырами, ведь сыра много не бывает!",
-//         price: "610 ₽",
-//     },
-// ];
 
 import { useNavigate } from 'react-router-dom';
 import Modal from 'react-modal';
@@ -178,8 +117,8 @@ const Services = ({ ServicesData, isPending, isError }) => {
                         zIndex: 1000,
                     },
                     content: {
-                        width: '25%', // Уменьшенная ширина
-                        height: 'auto',
+                        width: '50%%',
+                        height: '50%',
                         margin: '0 auto',
                         padding: '10px',
                         backgroundColor: '#fff',
