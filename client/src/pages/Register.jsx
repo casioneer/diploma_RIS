@@ -35,7 +35,7 @@ const Register = () => {
       })
         .then(({ data }) => {
           setError("");
-          toast.success("Account created successfully.");
+          toast.success("Аккаунт успешно создан.");
           setTimeout(() => {
             setUserState(data);
             setIsLoading(!isLoading);
@@ -46,7 +46,7 @@ const Register = () => {
           setError(response.data.message);
         });
     } else {
-      setError("Password doesn't match ");
+      setError("Пароль не подходит");
     }
   };
 
@@ -54,16 +54,16 @@ const Register = () => {
     return <Navigate to={state?.from || "/"} />;
   }
   return (
-    <Layout title="Create account">
+    <Layout title="Создать аккаунт">
       <div className="flex items-center justify-center mx-auto mt-20 ">
         <form
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col w-full md:w-1/2 mx-2"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <h1 className="text-center text-4xl">Create Account</h1>
+          <h1 className="text-center text-4xl">Создать аккаунт</h1>
           <div className="mt-4">
             <Label className="block text-grey-darker text-sm font-bold mb-2">
-              <span>Username</span>
+              <span>Никнейм</span>
             </Label>
             <Input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
@@ -72,9 +72,9 @@ const Register = () => {
               {...register("username", {
                 minLength: {
                   value: 4,
-                  message: "Username must be greater than 3 characters",
+                  message: "Длина никнейма должна превышать 3 символа",
                 },
-                required: "Username is required",
+                required: "Требуется никнейм",
               })}
             />
           </div>
@@ -85,17 +85,17 @@ const Register = () => {
           )}
           <div className="mt-4">
             <Label className="block text-grey-darker text-sm font-bold mb-2">
-              <span>Fullname</span>
+              <span>Имя</span>
             </Label>
             <Input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
               type="text"
               name="name"
               {...register("name", {
-                required: "Name cannot be empty",
+                required: "Имя не может быть пустым",
                 minLength: {
                   value: 6,
-                  message: "Name must be greater than 5 characters",
+                  message: "Длина имени должна превышать 3 символа",
                 },
               })}
             />
@@ -114,11 +114,11 @@ const Register = () => {
               type="email"
               name="email"
               {...register("email", {
-                required: "Email required",
+                required: "Требуется адрес почты",
                 pattern: {
                   // eslint-disable-next-line no-useless-escape
                   value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-                  message: "Email not valid",
+                  message: "Адрес почты не подходит",
                 },
               })}
             />
@@ -137,10 +137,10 @@ const Register = () => {
               type="password"
               name="password"
               {...register("password", {
-                required: "Password required",
+                required: "Требуется пароль",
                 minLength: {
                   value: 6,
-                  message: "Password must be greater than 5 characters",
+                  message: "Длина пароля должна превышать 5 символов",
                 },
               })}
             />
@@ -159,7 +159,7 @@ const Register = () => {
               type="password"
               name="password2"
               {...register("password2", {
-                validate: (value) => value === password.current || "Passwords do not match",
+                validate: (value) => value === password.current || "Пароли не совпадают",
               })}
             />
             {errors.password2 && (
@@ -172,7 +172,7 @@ const Register = () => {
             {isLoading ? (
               <PulseLoader color={"#0a138b"} size={10} loading={isLoading} />
             ) : (
-              "Create Account"
+              "Создать аккаунт"
             )}
           </Button>
           {error && (
@@ -181,9 +181,9 @@ const Register = () => {
             </HelperText>
           )}
           <p className="text-sm mt-4">
-            Have an account?{" "}
+            Есть аккаунт?{" "}
             <Link to="/login" className="font-bold">
-              Login
+              Войти
             </Link>
           </p>
         </form>

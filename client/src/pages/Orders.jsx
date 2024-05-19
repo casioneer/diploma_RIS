@@ -35,8 +35,8 @@ const Orders = () => {
   if (orders?.length === 0) {
     return (
       <Layout loading={orders === null}>
-        <h1 className="my-10 text-center text-4xl font-semibold">Orders</h1>
-        <p>You are yet to place an order</p>
+        <h1 className="my-10 text-center text-4xl font-semibold">Заказы</h1>
+        <p>Вам еще предстоит офоормить заказ</p>
       </Layout>
     );
   }
@@ -49,10 +49,10 @@ const Orders = () => {
           <TableHeader>
             <TableRow>
               <TableCell>ID</TableCell>
-              <TableCell>No. of items</TableCell>
-              <TableCell>Status</TableCell>
-              <TableCell>Amount</TableCell>
-              <TableCell>Date</TableCell>
+              <TableCell>Количество продуктов</TableCell>
+              <TableCell>Статус</TableCell>
+              <TableCell>Сумма</TableCell>
+              <TableCell>Дата</TableCell>
             </TableRow>
           </TableHeader>
           <TableBody>

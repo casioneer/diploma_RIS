@@ -24,14 +24,14 @@ const Confirmation = () => {
             <CheckCircle color="green" size={100} />
           </div>
           <div className="space-y-2">
-            <h1 className="text-4xl">Order Confirmed</h1>
-            <p className="">Thank you for your purchase, {`${userData?.fullname}`}!</p>
+            <h1 className="text-4xl">Заказ подтвержден</h1>
+            <p className="">Спасибо за покупку, {`${userData?.fullname}`}!</p>
             <p className="flex flex-col md:flex-row space-y-2.5 md:space-y-0 md:space-x-2 mt-2">
               <Button tag={Link} to="/products" layout="outline">
-                Continue shopping
+                Продолжить заказ
               </Button>
               <Button tag={Link} to="/orders" layout="primary">
-                Manage Order
+                Заказы
               </Button>
             </p>
           </div>

@@ -18,16 +18,16 @@ const OrderDetails = () => {
   return (
     <Layout>
       <div className="my-4">
-        <h1 className="font-bold text-2xl">Order Details</h1>
-        <p>Order no: #{state.order.order_id}</p>
+        <h1 className="font-bold text-2xl">Детали заказа</h1>
+        <p>Заказ №: #{state.order.order_id}</p>
         <p>{`${state.order.total || "Not available"} items`}</p>
         <p>
-          Status: <Badge type="success">{state.order.status}</Badge>
+          Статус: <Badge type="success">{state.order.status}</Badge>
         </p>
-        <p>Total Amount: {formatCurrency(state.order.amount)}</p>
-        <p>Placed on: {format(parseISO(state.order.date), "d MMM, yyyy")}</p>
+        <p>Итого: {formatCurrency(state.order.amount)}</p>
+        <p>Дата: {format(parseISO(state.order.date), "d MMM, yyyy")}</p>
         <div className="border-t-2">
-          <h1 className="font-bold text-xl">Items in your order</h1>
+          <h1 className="font-bold text-xl">Продукты в заказе</h1>
           {items?.map((item) => (
             <Card key={item.product_id} className="flex my-4 p-2 md:flex-row flex-col">
               <img
@@ -41,7 +41,7 @@ const OrderDetails = () => {
                 <h1 className="font-semibold text-gray-600">{item.name}</h1>
                 <p className="mb-2">{formatCurrency(item.price)}</p>
                 <p className="text-gray-600 dark:text-gray-400">{item.description}</p>
-                <p className="mt-2">Quantity: {item.quantity}</p>
+                <p className="mt-2">Количество: {item.quantity}</p>
               </CardBody>
             </Card>
           ))}

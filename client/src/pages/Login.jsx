@@ -56,7 +56,7 @@ const Login = () => {
       setError("");
       setIsLoading(true);
       const data = await authService.login(email, password);
-      toast.success("Login successful 🔓");
+      toast.success("Вход успешен 🔓");
 
       setTimeout(() => {
         setUserState(data);
@@ -77,16 +77,16 @@ const Login = () => {
   }
 
   return (
-    <Layout title="Login">
+    <Layout title="Логин">
       <div className="flex items-center justify-center m-auto mt-20">
         <form
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col w-full md:w-1/2"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <h1 className="text-center text-4xl my-4">Continue Shopping</h1>
+          <h1 className="text-center text-4xl my-4">Продолжить заказ</h1>
           <div className="">
             <Label className="block text-grey-darker text-sm font-bold mb-2">
-              <span>Email</span>
+              <span>Почта</span>
             </Label>
             <Input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
@@ -97,22 +97,22 @@ const Login = () => {
                 // eslint-disable-next-line no-useless-escape
                 pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
               })}
-              placeholder="Enter a valid email"
+              placeholder="Введите действительный адрес почты"
             />
           </div>
           {errors?.email && errors?.email.type === "required" && (
             <HelperText className="mt-1 italic" valid={false}>
-              Email required
+              Требуется почта
             </HelperText>
           )}
           {errors?.email && errors?.email.type === "pattern" && (
             <HelperText className="mt-1 italic" valid={false}>
-              Invalid email
+              Неверная почта
             </HelperText>
           )}
           <div className="mt-4">
             <Label className="block text-grey-darker text-sm font-bold mb-2">
-              <span>Password</span>
+              <span>Пароль</span>
             </Label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
@@ -123,7 +123,7 @@ const Login = () => {
           </div>
           {errors?.password && (
             <HelperText className="mt-1 italic" valid={false}>
-              {errors?.password?.type === "required" && "Password required"}
+              {errors?.password?.type === "required" && "Необходим пароль"}
             </HelperText>
           )}
           {error && (
@@ -139,9 +139,9 @@ const Login = () => {
           </Button>
 
           <p className="text-sm mt-4">
-            Don&apos;t have an account?{" "}
+            Нет аккаунта?{" "}
             <Link to="/signup" className="font-bold">
-              Sign Up
+              Зарегистрируйтесь
             </Link>
           </p>
         </form>

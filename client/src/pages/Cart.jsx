@@ -21,12 +21,12 @@ const Cart = () => {
   if (cartData?.items?.length === 0) {
     return (
       <Layout title="Cart" loading={isLoading}>
-        <h1 className="my-10 text-center text-4xl font-semibold">Shopping Cart</h1>
+        <h1 className="my-10 text-center text-4xl font-semibold">Корзина</h1>
         <div className="h-full flex flex-col justify-center items-center">
           <ShoppingCart size={150} />
-          <p>Cart is empty</p>
+          <p>Корзина пуста</p>
           <Button tag={Link} to="/">
-            Continue shopping
+            Продолжить заказ
           </Button>
         </div>
       </Layout>
@@ -35,16 +35,16 @@ const Cart = () => {
 
   return (
     <Layout loading={isLoading || cartData === undefined}>
-      <h1 className="my-10 text-center text-4xl font-semibold">Shopping Cart</h1>
+      <h1 className="my-10 text-center text-4xl font-semibold">Корзина</h1>
       <TableContainer>
         <Table>
           <TableHeader>
             <TableRow>
-              <TableCell>Product</TableCell>
-              <TableCell>Amount</TableCell>
-              <TableCell>Quantity</TableCell>
-              <TableCell>Total</TableCell>
-              <TableCell>Remove</TableCell>
+              <TableCell>Продукт</TableCell>
+              <TableCell>Цена</TableCell>
+              <TableCell>Количество</TableCell>
+              <TableCell>Стоимость</TableCell>
+              <TableCell>Удалить</TableCell>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -58,7 +58,7 @@ const Cart = () => {
           </TableBody>
         </Table>
         <TableFooter className="flex flex-col justify-end items-end">
-          <div className="mb-2">Total: {formatCurrency(cartSubtotal)}</div>
+          <div className="mb-2">Всего: {formatCurrency(cartSubtotal)}</div>
           <Button
             tag={Link}
             to={"/cart/checkout"}
@@ -66,7 +66,7 @@ const Cart = () => {
               fromCartPage: true,
             }}
           >
-            Checkout
+            Оплатить
           </Button>
         </TableFooter>
       </TableContainer>
