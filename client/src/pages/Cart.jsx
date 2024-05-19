@@ -11,7 +11,7 @@ import {
 import CartItem from "components/CartItem";
 import { useCart } from "context/CartContext";
 import { formatCurrency } from "helpers/formatCurrency";
-import Layout from "layout/Layout";
+import Layout from "../layout/Layout";
 import { ShoppingCart } from "react-feather";
 import { Link } from "react-router-dom";
 

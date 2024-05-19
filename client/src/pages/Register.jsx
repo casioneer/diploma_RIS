@@ -1,7 +1,7 @@
 import { Button, HelperText, Input, Label } from "@windmill/react-ui";
 import API from "api/axios.config";
 import { useUser } from "context/UserContext";
-import Layout from "layout/Layout";
+import Layout from "../layout/Layout";
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";

@@ -1,7 +1,7 @@
 import { Badge, Card, CardBody } from "@windmill/react-ui";
 import { format, parseISO } from "date-fns";
 import { formatCurrency } from "helpers/formatCurrency";
-import Layout from "layout/Layout";
+import Layout from "../layout/Layout";
 import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import orderService from "services/order.service";

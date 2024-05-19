@@ -1,7 +1,7 @@
 import { Button } from "@windmill/react-ui";
 import AccountForm from "components/AccountForm";
 import { useUser } from "context/UserContext";
-import Layout from "layout/Layout";
+import Layout from "../layout/Layout";
 import { useState } from "react";
 import { Edit2 } from "react-feather";
 import toast from "react-hot-toast";

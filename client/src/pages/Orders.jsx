@@ -10,7 +10,7 @@ import {
 } from "@windmill/react-ui";
 import OrderItem from "components/OrderItem";
 import { useOrders } from "context/OrderContext";
-import Layout from "layout/Layout";
+import Layout from "../layout/Layout";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import orderService from "services/order.service";

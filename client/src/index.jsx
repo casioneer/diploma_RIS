@@ -1,5 +1,5 @@
 // import { GoogleOAuthProvider } from "@react-oauth/google";
-// import { Windmill } from "@windmill/react-ui";
+import { Windmill } from "@windmill/react-ui";
 import { GlobalHistory } from "components/GlobalHistory";
 import { CartProvider } from "context/CartContext";
 import { OrderProvider } from "context/OrderContext";
@@ -22,22 +22,22 @@ const root = createRoot(container);
 
 root.render(
   // <GoogleOAuthProvider clientId={googleClientId}>
-  //   <HelmetProvider>
-  //     <Windmill>
-  <UserProvider>
-    <ProductProvider>
-      <ReviewProvider>
-        <CartProvider>
-          <OrderProvider>
-            <BrowserRouter>
-              <GlobalHistory />
-              <App />
-            </BrowserRouter>
-          </OrderProvider>
-        </CartProvider>
-      </ReviewProvider>
-    </ProductProvider>
-  </UserProvider>
+  <HelmetProvider>
+    <Windmill>
+      <UserProvider>
+        <ProductProvider>
+          <ReviewProvider>
+            <CartProvider>
+              <OrderProvider>
+                <BrowserRouter>
+                  <GlobalHistory />
+                  <App />
+                </BrowserRouter>
+              </OrderProvider>
+            </CartProvider>
+          </ReviewProvider>
+        </ProductProvider>
+      </UserProvider>
   //     </Windmill>
   //   </HelmetProvider>
   // </GoogleOAuthProvider>
