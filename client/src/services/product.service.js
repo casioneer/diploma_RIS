@@ -2,13 +2,13 @@ import API from "api/axios.config";
 
 class ProductService {
   getProducts(page) {
-    return API.get(`/products/?page=${page}`);
+    return API.get(`/product/?page=${page}`);
   }
   getProduct(id) {
-    return API.get(`/products/${id}`);
+    return API.get(`/product/${id}`);
   }
   getProductByName(name) {
-    return API.get(`/products/${name}`);
+    return API.get(`/product/${name}`);
   }
 }
 

@@ -12,7 +12,7 @@ const PaystackBtn = ({ isProcessing, setIsProcessing }) => {
   const navigate = useNavigate();
 
   const onSuccess = (data) => {
-    orderService.createOrder(cartSubtotal, cartTotal, data.reference, "PAYSTACK").then(() => {
+    orderService.createOrder(cartSubtotal, cartTotal, data.reference, "TEST").then(() => {
       setCartData({ ...cartData, items: [] });
       setIsProcessing(false);
       navigate("/cart/success", {
@@ -27,21 +27,21 @@ const PaystackBtn = ({ isProcessing, setIsProcessing }) => {
     toast.error("Payment cancelled");
     setIsProcessing(false);
   };
-
-  const config = {
-    email: userData.email,
-    amount: (cartSubtotal * 100).toFixed(2),
-    publicKey: import.meta.env.VITE_PAYSTACK_PUB_KEY,
-  };
-
-  const initializePayment = usePaystackPayment(config);
+  /*
+    const config = {
+      email: userData.email,
+      amount: (cartSubtotal * 100).toFixed(2),
+      publicKey: import.meta.env.VITE_PAYSTACK_PUB_KEY,
+    };
+  
+    const initializePayment = usePaystackPayment(config); */
   return (
     <Button
       disabled={isProcessing}
       className="w-full"
       onClick={() => {
         setIsProcessing(true);
-        initializePayment(onSuccess, onClose);
+        //     initializePayment(onSuccess, onClose);
       }}
     >
       {isProcessing ? "Processing..." : "Pay with Paystack"}
