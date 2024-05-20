@@ -16,10 +16,10 @@ const Product = ({ product }) => {
     setIsLoading(true);
     try {
       await addItem(product, 1);
-      toast.success("Added to cart");
+      toast.success("Добавлено в корзину");
     } catch (error) {
       console.log(error);
-      toast.error("Error adding to cart");
+      toast.error("Ошибка добавления в корзину");
     } finally {
       setIsLoading(false);
     }
@@ -59,7 +59,7 @@ const Product = ({ product }) => {
             className="mt-4 transition duration-200 ease-out lg:bg-opacity-0 group-hover:bg-opacity-100"
             onClick={(e) => addToCart(e)}
           >
-            {isLoading ? null : "Add to Cart"}
+            {isLoading ? null : "Добавить"}
           </Button>
         </CardBody>
       </div>
