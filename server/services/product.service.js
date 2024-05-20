@@ -4,8 +4,8 @@ const {
     getProductDb,
     updateProductDb,
     deleteProductDb,
-    //        getProductByNameDb,
-    //        getProductBySlugDb,
+    getProductByNameDb,
+    getProductBySlugDb,
 } = require("../db/product.db");
 const { ErrorHandler } = require("../helpers/error");
 
@@ -41,28 +41,28 @@ class ProductService {
         }
     };
 
-    //    getProductBySlug = async (slug) => {
-    //        try {
-    //            const product = await getProductBySlugDb(slug);
-    //            if (!product) {
-    //                throw new ErrorHandler(404, "product not found");
-    //            }
-    //            return product;
-    //        } catch (error) {
-    //            throw new ErrorHandler(error.statusCode, error.message);
-    //        }
-    //    };
+    getProductBySlug = async (slug) => {
+        try {
+            const product = await getProductBySlugDb(slug);
+            if (!product) {
+                throw new ErrorHandler(404, "product not found");
+            }
+            return product;
+        } catch (error) {
+            throw new ErrorHandler(error.statusCode, error.message);
+        }
+    };
 
-    //    getProductByName = async (name) => {
-    //        try {
-    //            const product = await getProductByNameDb(name);
-    //            if (!product) {
-    //                throw new ErrorHandler(404, "product not found");
-    //            }
-    //        } catch (error) {
-    //            throw new ErrorHandler(error.statusCode, error.message);
-    //        }
-    //    };
+    getProductByName = async (name) => {
+        try {
+            const product = await getProductByNameDb(name);
+            if (!product) {
+                throw new ErrorHandler(404, "product not found");
+            }
+        } catch (error) {
+            throw new ErrorHandler(error.statusCode, error.message);
+        }
+    };
 
     updateProduct = async (data) => {
         try {

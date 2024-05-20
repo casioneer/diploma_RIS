@@ -38,8 +38,8 @@ root.render(
           </ReviewProvider>
         </ProductProvider>
       </UserProvider>
-  //     </Windmill>
-  //   </HelmetProvider>
+    </Windmill>
+  </HelmetProvider>
   // </GoogleOAuthProvider>
 
   //<BrowserRouter>

@@ -1,18 +1,18 @@
 import Spinner from "components/Spinner";
 import Layout from "./layout/Layout";
 import {
-  Account,
-  Cart,
-  Checkout,
-  Confirmation,
-  Login,
-  NotFound,
-  OrderDetails,
-  Orders,
-  ProductDetails,
-  ProductList,
-  Register,
-  ResetPassword,
+    Account,
+    Cart,
+    Checkout,
+    Confirmation,
+    Login,
+    NotFound,
+    OrderDetails,
+    Orders,
+    ProductDetails,
+    ProductList,
+    Register,
+    ResetPassword,
 } from "pages";
 
 // import Test from "./pages/Test";
@@ -40,101 +40,101 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
 
-  // useState ID
+    // useState ID
 
-  const { data: products, isPending: productsIsPending, error: productsError } = useFetch({
-    url: 'http://localhost:9000/api/product',
-    //url: 'http://172.24.158.120:9000/api/product',
-    defaultData: [],
-    trigger: false
-  });
+    const { data: products, isPending: productsIsPending, error: productsError } = useFetch({
+        // url: 'http://localhost:9000/api/product',
+        url: 'http://172.24.158.120:9000/api/product',
+        defaultData: [],
+        trigger: false
+    });
 
-  // const { data: product, isPending: productIsPending, error: productError } = useFetch({
-  //     // url: 'http://localhost:9000/api/product?id=1',
-  //     url: `http://172.24.158.120:9000/api/product?id=${ID}`,
-  //     defaultData: [],
-  //     trigger: false
-  // });
+    // const { data: product, isPending: productIsPending, error: productError } = useFetch({
+    //     // url: 'http://localhost:9000/api/product?id=1',
+    //     url: `http://172.24.158.120:9000/api/product?id=${ID}`,
+    //     defaultData: [],
+    //     trigger: false
+    // });
 
-  // handler(event) { event.target.id }
-
-
+    // handler(event) { event.target.id }
 
 
-  return (
-    <Suspense
-      fallback={
-        <Layout>
-          <Spinner size={100} />
-        </Layout>
-      }
-    >
-      <Toaster position="top-right" />
-      <Routes>
-        <Route element={<ProtectedRoute />}>
-          <Route path="/profile" element={<Account />} />
-          <Route path="/cart/checkout" element={<Checkout />} />
-          <Route path="/cart/success" element={<Confirmation />} />
-          <Route path="/orders" element={<Orders />} />
-          <Route path="/orders/:id/" element={<OrderDetails />} />
-        </Route>
 
-        <Route path="/signup" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route index element={<ProductList />} />
-        <Route path="/products/:slug/" element={<ProductDetails />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/reset-password" element={<ResetPassword />} />
-        <Route path="*" element={<NotFound />}></Route>
-      </Routes>
-    </Suspense>
-    // <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
-    //   <Nav />
-    //   <Hero />
-    //   <Services
-    //     ServicesData={products}
-    //     isPending={productsIsPending}
-    //     error={productsError}
-    //   />
-    //   <Banner />
-    //   <AppStore />
-    //   <Testimonial />
-    //   <Footer />
-    // </div>
 
-  );
+    return (
+        <Suspense
+            fallback={
+                <Layout>
+                    <Spinner size={100} />
+                </Layout>
+            }
+        >
+            <Toaster position="top-right" />
+            <Routes>
+                <Route element={<ProtectedRoute />}>
+                    <Route path="/profile" element={<Account />} />
+                    <Route path="/cart/checkout" element={<Checkout />} />
+                    <Route path="/cart/success" element={<Confirmation />} />
+                    <Route path="/orders" element={<Orders />} />
+                    <Route path="/orders/:id/" element={<OrderDetails />} />
+                </Route>
 
-  //     <Suspense
-  //       fallback={
-  //         <Layout>
-  //           <Spinner size={100} />
-  //         </Layout>
-  //       }
-  //     >
+                <Route path="/signup" element={<Register />} />
+                <Route path="/login" element={<Login />} />
+                <Route index element={<ProductList />} />
+                <Route path="/products/:slug/" element={<ProductDetails />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/reset-password" element={<ResetPassword />} />
+                <Route path="*" element={<NotFound />}></Route>
+            </Routes>
+        </Suspense>
+        // <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
+        //   <Nav />
+        //   <Hero />
+        //   <Services
+        //     ServicesData={products}
+        //     isPending={productsIsPending}
+        //     error={productsError}
+        //   />
+        //   <Banner />
+        //   <AppStore />
+        //   <Testimonial />
+        //   <Footer />
+        // </div>
 
-  // {/* 
-  //       <Routes>
-  //         <Route path="/" element={<Test />}/>
-  //       </Routes> */}
-  //       {/* <Toaster position="top-right" />
-  //       <Routes>
-  //         <Route element={<ProtectedRoute />}>
-  //           <Route path="/profile" element={<Account />} />
-  //           <Route path="/cart/checkout" element={<Checkout />} />
-  //           <Route path="/cart/success" element={<Confirmation />} />
-  //           <Route path="/orders" element={<Orders />} />
-  //           <Route path="/orders/:id/" element={<OrderDetails />} />
-  //         </Route>
+    );
 
-  //         <Route path="/signup" element={<Register />} />
-  //         <Route path="/login" element={<Login />} />
-  //         <Route index element={<ProductList />} />
-  //         <Route path="/products/:slug/" element={<ProductDetails />} />
-  //         <Route path="/cart" element={<Cart />} />
-  //         <Route path="/reset-password" element={<ResetPassword />} />
-  //         <Route path="*" element={<NotFound />}></Route>
-  //       </Routes> */}
-  //     </Suspense>
+    //     <Suspense
+    //       fallback={
+    //         <Layout>
+    //           <Spinner size={100} />
+    //         </Layout>
+    //       }
+    //     >
+
+    // {/* 
+    //       <Routes>
+    //         <Route path="/" element={<Test />}/>
+    //       </Routes> */}
+    //       {/* <Toaster position="top-right" />
+    //       <Routes>
+    //         <Route element={<ProtectedRoute />}>
+    //           <Route path="/profile" element={<Account />} />
+    //           <Route path="/cart/checkout" element={<Checkout />} />
+    //           <Route path="/cart/success" element={<Confirmation />} />
+    //           <Route path="/orders" element={<Orders />} />
+    //           <Route path="/orders/:id/" element={<OrderDetails />} />
+    //         </Route>
+
+    //         <Route path="/signup" element={<Register />} />
+    //         <Route path="/login" element={<Login />} />
+    //         <Route index element={<ProductList />} />
+    //         <Route path="/products/:slug/" element={<ProductDetails />} />
+    //         <Route path="/cart" element={<Cart />} />
+    //         <Route path="/reset-password" element={<ResetPassword />} />
+    //         <Route path="*" element={<NotFound />}></Route>
+    //       </Routes> */}
+    //     </Suspense>
 
 }
 

@@ -18,15 +18,15 @@ const getProduct = async (req, res) => {
     res.status(200).json(product);
 };
 
-//const getProductBySlug = async (req, res) => {
-//    const product = await productService.getProductBySlug(req.params);
-//    res.status(200).json(product);
-//};
+const getProductBySlug = async (req, res) => {
+    const product = await productService.getProductBySlug(req.params);
+    res.status(200).json(product);
+};
 
-//const getProductByName = async (req, res) => {
-//    const product = await productService.getProductByName(req.params);
-//    res.status(200).json(product);
-//};
+const getProductByName = async (req, res) => {
+    const product = await productService.getProductByName(req.params);
+    res.status(200).json(product);
+};
 
 const updateProduct = async (req, res) => {
     const { name, price, description } = req.body;
@@ -114,8 +114,8 @@ module.exports = {
     updateProduct,
     deleteProduct,
     getAllProducts,
-    //    getProductByName,
-    //    getProductBySlug,
+    getProductByName,
+    getProductBySlug,
     //    getProductReviews,
     //    updateProductReview,
     //    createProductReview,
