@@ -16,6 +16,7 @@
 // } from "pages";
 
 // import Test from "./pages/Test";
+import Product from "./components/Product"
 import Navbar from "./components/Navbar/Navbar"
 import Hero from "./components/Hero/Hero"
 import Services from "components/Services/Services";
@@ -70,6 +71,7 @@ function App() {
         isPending={productsIsPending}
         error={productsError}
       />
+      <Product />
       <Banner />
       <AppStore />
       <Testimonial />

@@ -1,22 +1,6 @@
 import React from "react";
-//import Img from "../../assets/pizza-pepperoni.png";
-//import Img2 from "../../assets/pizza-margarita.png";
-//import Img3 from "../../assets/pizza-mushrooms.png";
-//import Img4 from "../../assets/pizza-hawaii.png";
-//import Img5 from "../../assets/pizza-heart.png";
-//import Img6 from "../../assets/pizza-4-cheese.png";
-
 import useFetch from "../../hooks/useFetch";
 import { useState, useEffect } from "react";
-
-
-
-// const { data, isPending, error } = useFetch({
-//     url: 'http://localhost:9000/api/product?id=1',
-//     defaultData: [],
-//     trigger: false
-// });
-
 
 // const ServicesData = [
 //     { product_id: 4, name: 'pizza-hawaii', slug: 'pizza-hawaii', price: 550, description: 'Пицца с ананасами и свежими оващами - яркий вкус!' },
@@ -24,12 +8,12 @@ import { useState, useEffect } from "react";
 //     { product_id: 6, name: 'pizza-4-cheese', slug: 'pizza-4-cheeze', price: 610, description: 'Пицца с восьмью сырами, ведь сыра много не бывает!' },
 //     { product_id: 2, name: 'pizza-pepperoni', slug: 'pizza-pepperoni', price: 680, description: 'Пицца с пепперони и травами - остро и сочно!' },
 //     { product_id: 5, name: 'pizza-heart', slug: 'pizza-heart', price: 660, description: 'Пицца в виде сердца - удиви своих близких!' },
-//     { product_id: 1, name: 'pizza-margarita', slug: 'pizza-margarita', price: 450, description: 'Пицца с пармезаном, моцареллой и чеддером - все что нужно!' }
+//   { product_id: 1, name: 'pizza-margarita', slug: 'pizza-margarita', price: 450, description: 'Пицца с пармезаном, моцареллой и чеддером - все что нужно!' }
 // ]
 
 
 
-import { useNavigate } from 'react-router-dom';
+
 import Modal from 'react-modal';
 
 const Services = ({ ServicesData, isPending, isError }) => {
@@ -43,12 +27,6 @@ const Services = ({ ServicesData, isPending, isError }) => {
 
     const closeModal = () => {
         setModalIsOpen(false);
-    };
-
-    const navigate = useNavigate();
-
-    const handleAddClick = (productId) => {
-        navigate(`/product/${productId}`);
     };
 
     let menuCards;
@@ -77,7 +55,7 @@ const Services = ({ ServicesData, isPending, isError }) => {
             </div>
             <div className="text-center flex items-center justify-center p-4">
                 <h1 className="pr-2">{service.price}</h1>
-                <button id={service.product_id} onClick={() => handleAddClick(service.product_id)} className=" bg-secondary hover:scale-105 duration-200 text-white py-1 px-4 rounded-full flex items-center gap-3">
+                <button id={service.product_id} className=" bg-secondary hover:scale-105 duration-200 text-white py-1 px-4 rounded-full flex items-center gap-3">
                     Добавить
                 </button>
             </div>
