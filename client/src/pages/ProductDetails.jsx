@@ -22,10 +22,10 @@ const ProductDetails = () => {
     setIsLoading(true);
     try {
       await addItem(product, 1);
-      toast.success("Added to cart");
+      toast.success("Добавлено в корзину");
     } catch (error) {
       console.log(error);
-      toast.error("Error adding to cart");
+      toast.error("Ошибка добавления в корзину");
     } finally {
       setIsLoading(false);
     }
@@ -62,20 +62,7 @@ const ProductDetails = () => {
             />
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               <h1 className="text-3xl title-font font-medium mb-1">{product?.name}</h1>
-              <div className="flex mb-4">
-                <span className="flex items-center">
-                  <ReactStars
-                    count={5}
-                    size={24}
-                    edit={false}
-                    value={+product?.avg_rating}
-                    activeColor="#ffd700"
-                  />
-                  <span className="ml-3">
-                    {+product?.count > 0 ? `${+product.count} Ratings` : "No ratings available"}
-                  </span>
-                </span>
-              </div>
+
               <p className="leading-relaxed pb-6 border-b-2 border-gray-800">
                 {product?.description}
               </p>
@@ -84,7 +71,7 @@ const ProductDetails = () => {
                   {formatCurrency(product?.price)}
                 </span>
                 <Button
-                  className="border-0 focus:outline-none rounded"
+                  className="bg-secondary hover:scale-105 duration-200 text-white py-1 px-4 rounded-full flex items-center gap-3"
                   onClick={(e) => addToCart(e)}
                 >
                   {isLoading ? (
@@ -96,7 +83,7 @@ const ProductDetails = () => {
                       size={20}
                     />
                   ) : (
-                    "Add to Cart"
+                    "Добавить в корзину"
                   )}
                 </Button>
               </div>

@@ -49,7 +49,7 @@ const Account = () => {
                   </dd>
                 </div>
                 <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium text-gray-500">Юзернейм</dt>
+                  <dt className="text-sm font-medium text-gray-500">Никнейм</dt>
                   <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                     {userData?.username}
                   </dd>
@@ -60,18 +60,7 @@ const Account = () => {
                     {userData?.email}
                   </dd>
                 </div>
-                <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium text-gray-500">Пароль</dt>
-                  <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    <Button disabled={isSending} onClick={resetPassword}>
-                      {isSending ? (
-                        <PulseLoader color={"#0a138b"} size={10} />
-                      ) : (
-                        "Reset password by email"
-                      )}
-                    </Button>
-                  </dd>
-                </div>
+
                 <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt className="text-sm font-medium text-gray-500">Адрес</dt>
                   <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
@@ -97,9 +86,9 @@ const Account = () => {
                   </dd>
                 </div>
                 <div className="bg-gray-50 px-4 py-5">
-                  <Button iconRight={Edit2} onClick={(e) => setShowSettings(!showSettings)}>
+                  <Button iconRight={Edit2} onClick={(e) => setShowSettings(!showSettings)} className="bg-secondary hover:scale-105 duration-200 text-white py-1 px-4 rounded-full flex items-center gap-3">
                     {" "}
-                    Edit
+                    Изменить
                   </Button>
                 </div>
               </dl>

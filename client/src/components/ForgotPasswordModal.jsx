@@ -55,14 +55,14 @@ const ForgotPasswordModal = () => {
           onClick={() => setIsOpen(!isOpen)}
           className="mb-1 text-sm text-purple-700 cursor-pointer"
         >
-          Forgot password?
+          {/*Забыли пароль?*/}
         </span>
         <Modal isOpen={isOpen} onClose={toggleModal}>
           <form onSubmit={handleSubmit(onSubmitReset)}>
-            <ModalHeader>Forgot Password</ModalHeader>
+            <ModalHeader>Забыть пароль</ModalHeader>
             <ModalBody>
               <Label>
-                <span className="font-semibold">Email</span>
+                <span className="font-semibold">Почта</span>
                 <Input
                   name="email"
                   className="mt-1 border py-2 pl-2"
@@ -99,9 +99,9 @@ const ForgotPasswordModal = () => {
               <Button
                 onClick={handleSubmit(onSubmitReset)}
                 disabled={isSending}
-                className="w-full sm:w-auto"
+                className=" bg-secondary hover:scale-105 duration-200 text-white py-1 px-4 rounded-full flex items-center gap-3"
               >
-                {isSending ? <PulseLoader size={10} color={"#0a138b"} /> : "Send email"}
+                {isSending ? <PulseLoader size={10} color={"#0a138b"} /> : "Отправить запрос"}
               </Button>
             </ModalFooter>
           </form>

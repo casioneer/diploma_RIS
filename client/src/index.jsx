@@ -1,4 +1,3 @@
-// import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Windmill } from "@windmill/react-ui";
 import { GlobalHistory } from "components/GlobalHistory";
 import { CartProvider } from "context/CartContext";
@@ -14,14 +13,10 @@ import "./index.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-
 const container = document.getElementById("root");
 const root = createRoot(container);
 
-//const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
-
 root.render(
-  // <GoogleOAuthProvider clientId={googleClientId}>
   <HelmetProvider>
     <Windmill>
       <UserProvider>
@@ -38,12 +33,6 @@ root.render(
           </ReviewProvider>
         </ProductProvider>
       </UserProvider>
-  //     </Windmill>
-  //   </HelmetProvider>
-  // </GoogleOAuthProvider>
-
-  //<BrowserRouter>
-  //  <App />
-  //</BrowserRouter>
-
+    </Windmill>
+  </HelmetProvider>
 );

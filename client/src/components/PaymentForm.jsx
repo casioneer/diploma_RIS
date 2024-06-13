@@ -15,7 +15,6 @@ const PaymentForm = ({ previousStep, addressData, nextStep }) => {
   const { cartSubtotal, cartTotal, cartData, setCartData } = useCart();
   const [error, setError] = useState();
   const [isProcessing, setIsProcessing] = useState(false);
-  //const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUB_KEY);
   const navigate = useNavigate();
 
   const handleSubmit = async (e, elements, stripe) => {
@@ -33,28 +32,6 @@ const PaymentForm = ({ previousStep, addressData, nextStep }) => {
       });
 
       const card = elements.getElement(CardElement);
-      /*   const result = await stripe.createPaymentMethod({
-            type: "card",
-            card,
-            billing_details: {
-              name: fullname,
-              email,
-              address: {
-                city,
-                line1: address,
-                state,
-                country: "NG", // TODO: change later
-              },
-            },
-          });
-          if (result.error) {
-            setError(result.error);
-          }
-    
-          await stripe.confirmCardPayment(data.client_secret, {
-            payment_method: result.paymentMethod.id,
-          });  */
-
       OrderService.createOrder(cartSubtotal, cartTotal, data.id, "TEST").then(() => {
         setCartData({ ...cartData, items: [] });
         setIsProcessing(false);
@@ -66,17 +43,16 @@ const PaymentForm = ({ previousStep, addressData, nextStep }) => {
       });
     } catch (error) {
       setIsProcessing(false);
-      // throw error
     }
   };
 
   return (
     <div className="w-full md:w-1/2">
-      <h1 className="text-3xl font-semibold text-center mb-2">Checkout</h1>
+      <h1 className="text-3xl font-semibold text-center mb-2">Итог</h1>
       <OrderSummary />
-      <h1 className="font-medium text-2xl">Pay with Stripe</h1>
+      <h1 className="font-medium text-2xl">Заплатите доступной картой</h1>
       <Button onClick={previousStep} layout="outline" size="small">
-        Back
+        Назад
       </Button>
       <Button>
         Pay

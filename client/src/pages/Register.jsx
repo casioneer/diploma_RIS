@@ -107,7 +107,7 @@ const Register = () => {
           )}
           <div className="mt-4">
             <Label className="block text-grey-darker text-sm font-bold mb-2">
-              <span>Email</span>
+              <span>Почта</span>
             </Label>
             <Input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
@@ -130,7 +130,7 @@ const Register = () => {
           )}
           <div className="mt-4">
             <Label className="block text-grey-darker text-sm font-bold mb-2">
-              <span>Password</span>
+              <span>Пароль</span>
             </Label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
@@ -152,7 +152,7 @@ const Register = () => {
           )}
           <div className="mt-4">
             <Label className="block text-grey-darker text-sm font-bold mb-2">
-              <span>Confirm Password</span>
+              <span>Подтвердить пароль</span>
             </Label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
@@ -168,13 +168,16 @@ const Register = () => {
               </HelperText>
             )}
           </div>
-          <Button type="submit" className="mt-4">
+          <p>
+
+          </p>
+          <Button type="submit" className="bg-secondary hover:scale-105 duration-200 text-white py-1 px-4 rounded-full flex items-center gap-3">
             {isLoading ? (
               <PulseLoader color={"#0a138b"} size={10} loading={isLoading} />
             ) : (
               "Создать аккаунт"
             )}
-          </Button>
+          </Button >
           {error && (
             <HelperText className="pt-2" valid={false}>
               {error}

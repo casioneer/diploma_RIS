@@ -55,12 +55,12 @@ const ResetPassword = () => {
       {msg.showForm ? (
         <div className="pt-12">
           <header className="max-w-lg mx-auto mb-4">
-            <h1 className="text-4xl font-bold text-center">Reset Password</h1>
+            <h1 className="text-4xl font-bold text-center">Сброс пароля</h1>
           </header>
           <div className="mx-auto max-w-lg shadow-2xl p-8 md:p-10">
             <form className="flex flex-col" onSubmit={handleSubmit(handlePasswordReset)}>
               <Label className="mb-4">
-                <span className="block text-gray-700 text-sm font-bold mb-2">Password</span>
+                <span className="block text-gray-700 text-sm font-bold mb-2">Пароль</span>
                 <Input
                   className="rounded w-full text-gray-700 focus:outline-none border px-2 py-2 focus:border-purple-600 transition duration-500"
                   type="password"
@@ -81,7 +81,7 @@ const ResetPassword = () => {
                 )}
               </Label>
               <Label className="mb-4">
-                <span className="block text-gray-700 text-sm font-bold mb-2">Confirm Password</span>
+                <span className="block text-gray-700 text-sm font-bold mb-2">Подтвердить пароль</span>
                 <Input
                   className="rounded w-full text-gray-700 focus:outline-none border px-2 py-2 focus:border-purple-600 transition duration-500"
                   type="password"

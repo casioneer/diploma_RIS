@@ -24,7 +24,7 @@ const Menu = [
   {
     id: 3,
     name: "Информация",
-    link: "/#about",
+    link: "/#footer",
   },
 ];
 
@@ -139,7 +139,7 @@ const Nav = () => {
                       </DropdownItem>
                       <DropdownItem tag="a" className="border-t">
                         <Link className="w-full" onClick={() => logout()} to="/login">
-                          <Button iconRight={LogOut} block>
+                          <Button iconRight={LogOut} block className=" bg-secondary hover:scale-105 duration-200 text-white py-1 px-4 rounded-full flex items-center gap-3">
                             Выйти
                           </Button>
                         </Link>

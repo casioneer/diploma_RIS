@@ -9,10 +9,7 @@ console.log(databaseUrl);
 
 const pool = new Pool({
   connectionString: databaseUrl,
-  /*
-    SSL is not supported in development
-    */
-  // ssl: isProduction ? { rejectUnauthorized: false } : false,
+
 });
 
 module.exports = {

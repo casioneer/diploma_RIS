@@ -43,7 +43,7 @@ const Orders = () => {
 
   return (
     <Layout title="Orders" loading={orders === null}>
-      <h1 className="my-10 text-center text-4xl font-semibold">Orders</h1>
+      <h1 className="my-10 text-center text-4xl font-semibold">Заказы</h1>
       <TableContainer>
         <Table>
           <TableHeader>

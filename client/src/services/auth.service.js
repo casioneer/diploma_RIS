@@ -9,13 +9,6 @@ class AuthService {
     return data;
   }
 
-  async googleLogin(code) {
-    const { data } = await API.post("/auth/google", {
-      code,
-    });
-    return data;
-  }
-
   logout() {
     localStorage.removeItem("user");
     localStorage.removeItem("token");

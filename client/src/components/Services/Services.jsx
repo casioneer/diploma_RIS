@@ -1,34 +1,6 @@
 import React from "react";
-//import Img from "../../assets/pizza-pepperoni.png";
-//import Img2 from "../../assets/pizza-margarita.png";
-//import Img3 from "../../assets/pizza-mushrooms.png";
-//import Img4 from "../../assets/pizza-hawaii.png";
-//import Img5 from "../../assets/pizza-heart.png";
-//import Img6 from "../../assets/pizza-4-cheese.png";
-
 import useFetch from "../../hooks/useFetch";
 import { useState, useEffect } from "react";
-
-
-
-// const { data, isPending, error } = useFetch({
-//     url: 'http://localhost:9000/api/product?id=1',
-//     defaultData: [],
-//     trigger: false
-// });
-
-
-// const ServicesData = [
-//     { product_id: 4, name: 'pizza-hawaii', slug: 'pizza-hawaii', price: 550, description: 'Пицца с ананасами и свежими оващами - яркий вкус!' },
-//     { product_id: 3, name: 'pizza-mushrooms', slug: 'pizza-mushrooms', price: 600, description: 'Шампиньоны, оливки и травы - непередоваемо свежо!' },
-//     { product_id: 6, name: 'pizza-4-cheese', slug: 'pizza-4-cheeze', price: 610, description: 'Пицца с восьмью сырами, ведь сыра много не бывает!' },
-//     { product_id: 2, name: 'pizza-pepperoni', slug: 'pizza-pepperoni', price: 680, description: 'Пицца с пепперони и травами - остро и сочно!' },
-//     { product_id: 5, name: 'pizza-heart', slug: 'pizza-heart', price: 660, description: 'Пицца в виде сердца - удиви своих близких!' },
-//     { product_id: 1, name: 'pizza-margarita', slug: 'pizza-margarita', price: 450, description: 'Пицца с пармезаном, моцареллой и чеддером - все что нужно!' }
-// ]
-
-
-
 import { useNavigate } from 'react-router-dom';
 import Modal from 'react-modal';
 
@@ -55,35 +27,30 @@ const Services = ({ ServicesData, isPending, isError }) => {
 
     (!isPending && !isError) ? menuCards = ServicesData.map((service) => (
         <div
-            key={service.product_id}
-            id={service.product_id}
+            key={product.product_id}
+            id={product.product_id}
             data-aos="zoom-in"
             data-aos-duration="300"
             className="rounded-2xl bg-white dark:bg-gray-800  hover:bg-primary dark:hover:bg-primary hover:text-white relative shadow-xl duration-high group max-w-[300px]"
         >
             <div className="h-[100px]">
                 <img
-                    src={service.img}
+                    src={product.image_url}
                     alt=""
                     className="max-w-[180px] block mx-auto transform -translate-y-14
                   group-hover:scale-105 group-hover:rotate-6 duration-300"
                 />
             </div>
             <div className="p-4 text-center">
-                <h1 className="text-xl font-bold">{service.name}</h1>
+                <h1 className="text-xl font-bold">{product.name}</h1>
                 <p className="text-gray-500 group-hover:text-white duration-high text-sm line-clamp-2">
-                    {service.description}
+                    {product.description}
                 </p>
             </div>
             <div className="text-center flex items-center justify-center p-4">
-                <h1 className="pr-2">{service.price}</h1>
-                <button id={service.product_id} onClick={() => handleAddClick(service.product_id)} className=" bg-secondary hover:scale-105 duration-200 text-white py-1 px-4 rounded-full flex items-center gap-3">
+                <h1 className="pr-2">{formatCurrency(product.price)}</h1>
+                <button id={product.product_id} onClick={(e) => addToCart(e)} className=" bg-secondary hover:scale-105 duration-200 text-white py-1 px-4 rounded-full flex items-center gap-3">
                     Добавить
-                </button>
-            </div>
-            <div className="text-center flex items-center justify-center p-4">
-                <button onClick={() => openModal({ id: service.product_id, name: service.name, price: service.price, description: service.description, image: service.img })}>
-                    Подробнее
                 </button>
             </div>
         </div>

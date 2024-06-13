@@ -23,79 +23,79 @@ const PaymentForm = ({ next }) => {
 
   return (
     <div className="w-full">
-      <h1 className="text-3xl text-center mb-4 font-semibold">Address Details</h1>
+      <h1 className="text-3xl text-center mb-4 font-semibold">Детали адреса</h1>
       <form
         className="border p-4 border-black-4 w-full md:w-1/2 mx-auto"
         onSubmit={handleSubmit((data) => next(data))}
       >
         <Label className="block text-grey-darker text-sm font-bold mb-4">
-          <span>Fullname</span>
+          <span>Имя</span>
           <Input
             disabled
             type="text"
             className="shadow appearance-none rounded w-full text-grey-darker mt-2 px-2 py-2 border focus:outline-none"
             name="fullname"
-            {...register("fullname", { required: "Required" })}
+            {...register("fullname", { required: "Требуется имя" })}
           />
           {errors.fullname && <HelperText valid={false}>{errors.fullname.message}</HelperText>}
         </Label>
         <Label className="block text-grey-darker text-sm font-bold mb-4">
-          <span>Email</span>
+          <span>Почта</span>
           <Input
             disabled
             className="shadow appearance-none rounded w-full text-grey-darker mt-2 px-2 py-2 border focus:outline-none"
             type="text"
             name="email"
-            {...register("email", { required: "Required" })}
+            {...register("email", { required: "Требуется почта" })}
           />
           {errors.email && <HelperText valid={false}>{errors.email.message}</HelperText>}
         </Label>
         <Label className="block text-grey-darker text-sm font-bold mb-4">
-          <span>Address</span>
+          <span>Адрес</span>
           <Input
             className="shadow appearance-none rounded w-full text-grey-darker mt-2 px-2 py-2 border focus:outline-none"
             type="text"
             name="address"
-            {...register("address", { required: "Required" })}
+            {...register("address", { required: "Требуется адрес" })}
           />
           {errors.address && <HelperText valid={false}>{errors.address.message}</HelperText>}
         </Label>
         <Label className="block text-grey-darker text-sm font-bold mb-4">
-          <span>Country</span>
+          <span>Страна</span>
           <Input
             className="shadow appearance-none rounded w-full text-grey-darker mt-2 px-2 py-2 border focus:outline-none"
             type="text"
             name="country"
-            {...register("country", { required: "Required" })}
+            {...register("country", { required: "Требуется страна" })}
           />
           {errors.country && <HelperText valid={false}>{errors.country.message}</HelperText>}
         </Label>
         <Label className="block text-grey-darker text-sm font-bold mb-4">
-          <span>State/Region</span>
+          <span>Область</span>
           <Input
             className="shadow appearance-none rounded w-full text-grey-darker mt-2 px-2 py-2 border focus:outline-none"
             type="text"
             name="state"
-            {...register("state", { required: "Required" })}
+            {...register("state", { required: "Требуется страна" })}
           />
           {errors.state && <HelperText valid={false}>{errors.state.message}</HelperText>}
         </Label>
         <Label className="block text-grey-darker text-sm font-bold mb-4">
-          <span>City</span>
+          <span>Город</span>
           <Input
             className="shadow appearance-none rounded w-full text-grey-darker mt-2 px-2 py-2 border focus:outline-none"
             type="text"
             name="city"
-            {...register("city", { required: "Required" })}
+            {...register("city", { required: "Требуется город" })}
           />
           {errors.city && <HelperText valid={false}>{errors.city.message}</HelperText>}
         </Label>
         <div className="flex justify-between">
           <Button tag={Link} to="/cart" layout="outline" size="small">
-            Back to cart
+            Вернуться в корзину
           </Button>
-          <Button type="submit" size="small">
-            Proceed
+          <Button type="submit" size="small" className=" bg-secondary hover:scale-105 duration-200 text-white py-1 px-4 rounded-full flex items-center gap-3">
+            Продолжить
           </Button>
         </div>
       </form>

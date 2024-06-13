@@ -1,4 +1,3 @@
-import { useGoogleLogin } from "@react-oauth/google";
 import { Button, HelperText, Input, Label } from "@windmill/react-ui";
 import ForgotPasswordModal from "components/ForgotPasswordModal";
 import { useUser } from "context/UserContext";
@@ -14,15 +13,8 @@ const Login = () => {
   const { isLoggedIn, setUserState } = useUser();
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  //const [isGoogleLoading, setIsGoogleLoading] = useState(false);
   const [redirectToReferrer, setRedirectToReferrer] = useState(false);
   const { state } = useLocation();
-
-  //const login = useGoogleLogin({
-  //  onSuccess: (codeResponse) => handleGoogleLogin(codeResponse),
-  //  onError: (error) => console.log("Login Failed:", error),
-  //  flow: "auth-code",
-  //});
 
   const {
     register,
@@ -34,20 +26,6 @@ const Login = () => {
       password: "",
     },
   });
-
-  //async function handleGoogleLogin(googleData) {
-  //  try {
-  //    const data = await authService.googleLogin(googleData.code);
-  //    toast.success("Login successful 🔓");
-  //
-  //    setUserState(data);
-  //    setRedirectToReferrer(true);
-  //    setIsGoogleLoading(false);
-  //  } catch (error) {
-  //    setIsGoogleLoading(false);
-  //    toast.error("Could not login with Google 😢");
-  //  }
-  //}
 
   const onSubmit = async (data) => {
     const { email, password } = data;
@@ -83,7 +61,7 @@ const Login = () => {
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col w-full md:w-1/2"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <h1 className="text-center text-4xl my-4">Продолжить заказ</h1>
+          <h1 className="text-center text-4xl my-4">Войти в аккаунт</h1>
           <div className="">
             <Label className="block text-grey-darker text-sm font-bold mb-2">
               <span>Почта</span>
@@ -134,8 +112,8 @@ const Login = () => {
           <div className="mt-4">
             <ForgotPasswordModal />
           </div>
-          <Button type="submit" disabled={isLoading}>
-            {isLoading ? <PulseLoader color={"#0a138b"} size={10} loading /> : "Login"}
+          <Button type="submit" disabled={isLoading} className=" bg-secondary hover:scale-105 duration-200 text-white py-1 px-4 rounded-full flex items-center gap-3">
+            {isLoading ? <PulseLoader color={"#0a138b"} size={10} loading /> : "Войти"}
           </Button>
 
           <p className="text-sm mt-4">

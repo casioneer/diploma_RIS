@@ -43,7 +43,7 @@ const AppStore = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     );
 };

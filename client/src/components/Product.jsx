@@ -26,42 +26,33 @@ const Product = ({ product }) => {
   };
   return (
     <Link to={`/products/${product.slug}`}>
-      <div className="group">
-        <span className="block relative h-48 rounded overflow-hidden">
+      <div
+        key={product.product_id}
+        id={product.product_id}
+        data-aos="zoom-in"
+        data-aos-duration="300"
+        className="rounded-2xl bg-white dark:bg-gray-800  hover:bg-primary dark:hover:bg-primary hover:text-white relative shadow-xl duration-high group max-w-[300px]"
+      >
+        <div className="h-[100px]">
           <img
-            className="w-full h-full object-contain object-center"
             src={product.image_url}
-            alt={product.name}
-            loading="lazy"
-            decoding="async"
-            title={product.name}
+            alt=""
+            className="max-w-[180px] block mx-auto transform -translate-y-14
+                  group-hover:scale-105 group-hover:rotate-6 duration-300"
           />
-        </span>
-        <CardBody className="flex flex-col items-stretch mt-4">
-          <h2 className="title-font text-lg font-medium overflow-ellipsis whitespace-nowrap overflow-hidden">
-            {product.name}
-          </h2>
-          <p className="">{formatCurrency(product.price)}</p>
-          <Button
-            iconLeft={() =>
-              isLoading ? (
-                <ClipLoader
-                  cssOverride={{
-                    margin: "0 auto",
-                  }}
-                  color="#123abc"
-                  size={20}
-                />
-              ) : (
-                <ShoppingCart className="mr-2" />
-              )
-            }
-            className="mt-4 transition duration-200 ease-out lg:bg-opacity-0 group-hover:bg-opacity-100"
-            onClick={(e) => addToCart(e)}
-          >
-            {isLoading ? null : "Добавить"}
-          </Button>
-        </CardBody>
+        </div>
+        <div className="p-4 text-center">
+          <h1 className="text-xl font-bold">{product.name}</h1>
+          <p className="text-gray-500 group-hover:text-white duration-high text-sm line-clamp-2">
+            {product.description}
+          </p>
+        </div>
+        <div className="text-center flex items-center justify-center p-4">
+          <h1 className="pr-2">{formatCurrency(product.price)}</h1>
+          <button id={product.product_id} onClick={(e) => addToCart(e)} className=" bg-secondary hover:scale-105 duration-200 text-white py-1 px-4 rounded-full flex items-center gap-3">
+            Добавить
+          </button>
+        </div>
       </div>
     </Link>
   );

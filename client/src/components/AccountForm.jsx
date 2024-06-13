@@ -38,7 +38,7 @@ const AccountForm = ({ setShowSettings, userData }) => {
       <div className="w-full md:w-1/2 shadow-md overflow-hidden sm:rounded-lg">
         <div className="px-4 py-5 sm:px-6">
           <h3 className="text-lg leading-6 font-medium text-gray-900 capitalize">
-            Account settings
+            Настройки аккаунта
           </h3>
         </div>
         <form
@@ -46,7 +46,7 @@ const AccountForm = ({ setShowSettings, userData }) => {
           className="border-t border-gray-200 grid grid-cols-1"
         >
           <Label className="bg-gray-50 px-4 py-5">
-            <span className="text-sm font-medium text-gray-500 w-1/4">Full name</span>
+            <span className="text-sm font-medium text-gray-500 w-1/4">Полное имя</span>
             <Input
               name="fullname"
               {...register("fullname")}
@@ -54,7 +54,7 @@ const AccountForm = ({ setShowSettings, userData }) => {
             />
           </Label>
           <Label className="bg-white px-4 py-5 ">
-            <span className="text-sm font-medium text-gray-500">Username</span>
+            <span className="text-sm font-medium text-gray-500">Никнейм</span>
             <Input
               name="username"
               {...register("username")}
@@ -63,15 +63,15 @@ const AccountForm = ({ setShowSettings, userData }) => {
             {validationError && <HelperText valid={false}>{validationError.username}</HelperText>}
           </Label>
           <div className="bg-gray-50 px-4 py-5 ">
-            <span className="text-sm font-medium text-gray-500">Email address</span>
+            <span className="text-sm font-medium text-gray-500">Почта</span>
             <Input
               name="email"
               {...register("email", {
-                required: "Email required",
+                required: "Требуется почта",
                 pattern: {
                   // eslint-disable-next-line no-useless-escape
                   value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-                  message: "Email not valid",
+                  message: "Почта не верна",
                 },
               })}
               className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
@@ -79,7 +79,7 @@ const AccountForm = ({ setShowSettings, userData }) => {
             {validationError && <HelperText valid={false}>{validationError.email}</HelperText>}
           </div>
           <div className="bg-white px-4 py-5 ">
-            <span className="text-sm font-medium text-gray-500">Address</span>
+            <span className="text-sm font-medium text-gray-500">Адрес</span>
             <Input
               name="address"
               {...register("address")}
@@ -87,7 +87,7 @@ const AccountForm = ({ setShowSettings, userData }) => {
             />
           </div>
           <div className="bg-gray-50 px-4 py-5 ">
-            <span className="text-sm font-medium text-gray-500">City</span>
+            <span className="text-sm font-medium text-gray-500">Город</span>
             <Input
               name="city"
               {...register("city")}
@@ -95,7 +95,7 @@ const AccountForm = ({ setShowSettings, userData }) => {
             />
           </div>
           <div className="bg-white px-4 py-5 ">
-            <span className="text-sm font-medium text-gray-500">State</span>
+            <span className="text-sm font-medium text-gray-500">Область</span>
             <Input
               name="state"
               {...register("state")}
@@ -103,21 +103,22 @@ const AccountForm = ({ setShowSettings, userData }) => {
             />
           </div>
           <div className="bg-gray-50 px-4 py-5 ">
-            <span className="text-sm font-medium text-gray-500">Country</span>
+            <span className="text-sm font-medium text-gray-500">Страна</span>
             <Input
               name="country"
               {...register("country")}
               className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
             />
           </div>
-          <div className="px-4 py-5 space-x-4">
-            <Button disabled={isSaving} type="submit">
-              {isSaving ? <PulseLoader color={"#0a138b"} size={10} loading={isSaving} /> : "Save"}
-            </Button>
+          <div className="px-4 py-5 flex justify-between items-start">
             <Button disabled={isSaving} onClick={() => setShowSettings(false)} layout="outline">
-              Cancel
+              Отмена
+            </Button>
+            <Button disabled={isSaving} type="submit" className="bg-secondary hover:scale-105 duration-200 text-white py-1 px-4 rounded-full flex items-center gap-3">
+              {isSaving ? <PulseLoader color={"#0a138b"} size={10} loading={isSaving} /> : "Сохранить"}
             </Button>
           </div>
+
         </form>
       </div>
     </section>

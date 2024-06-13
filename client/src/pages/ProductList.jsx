@@ -3,6 +3,13 @@ import Product from "components/Product";
 import Spinner from "components/Spinner";
 import { useProduct } from "context/ProductContext";
 import Layout from "../layout/Layout";
+import Nav from "../components/Nav"
+import Hero from "../components/Hero/Hero"
+import Services from "../components/Services/Services";
+import Banner from "../components/Banner/Banner";
+import Testimonial from "../components/Testimonial/Testimonial"
+import AppStore from "../components/AppStore/AppStore"
+import Footer from "../components/Footer/Footer"
 
 const ProductList = () => {
   const { products, setPage } = useProduct();
@@ -23,27 +30,49 @@ const ProductList = () => {
   }
 
   return (
-    <Layout>
-      <div className="container py-20 mx-auto space-y-2">
-        <Card className="flex flex-wrap h-full mx-2">
-          {products?.map((prod) => (
-            <div
-              className="w-full flex flex-col justify-between sm:w-1/2 md:w-1/3 lg:w-1/4 my-2 px-2 box-border"
-              key={prod.product_id}
-            >
-              <Product product={prod} />
-            </div>
-          ))}
-        </Card>
-        <Pagination
-          totalResults={6}
-          resultsPerPage={6}
-          onChange={handleChange}
-          label="Page navigation"
-        />
+
+    <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
+      <Nav />
+      <Hero />
+      <span id="services"></span>
+      <div className="py-10">
+        <div className="container">
+          <div className="text-center mb-20 max-w-[400px] mx-auto">
+            <p className="text-sm bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary ">
+              Наше меню
+            </p>
+            <h1 className="text-3xl font-bold">Пиццы</h1>
+            <p className="text-xs text-gray-400">
+              Большой выбор пиц на любой вкус и кошелек.
+              Добавляте в корзину и заказывайте!
+            </p>
+          </div>
+        </div>
       </div>
-    </Layout>
+      <div className="py-10">
+        <div className="container">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-14 md:gap-20 place-items-center">
+            {products?.map((prod) => (
+              <div
+
+                key={prod.product_id}
+              >
+                <Product product={prod} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <Banner />
+      <AppStore />
+      <Testimonial />
+      <Footer />
+    </div>
+
+
   );
 };
 
 export default ProductList;
+
+
