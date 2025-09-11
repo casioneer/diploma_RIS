@@ -1,4 +1,4 @@
-/* import React from "react";
+import React from "react";
 
 const Cards = ({ item, handleClick }) => {
     const { title, author, price, img } = item;
@@ -19,4 +19,4 @@ const Cards = ({ item, handleClick }) => {
 
 export default Cards;
 
-// id, title, autor, price, img */
+// id, title, autor, price, img

@@ -1,4 +1,4 @@
-/*import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Amazon from "./components/amazon";
 import Navbar from "./components/navbar";
 import Cart from "./components/cart";
@@ -37,4 +37,4 @@ const App1 = () => {
     );
 };
 
-export default App1; */
+export default App1;

@@ -1,10 +1,8 @@
 const cartService = require("../services/cart.service");
 
 const getCart = async (req, res) => {
-  const userId = req.user.id;
-
-  // get cart items
-  const cart = await cartService.getCart(userId);
+  const cart_id = req.user.cart_id;
+  const cart = await cartService.getCartById(cart_id);
   res.json({ items: cart });
 };
 

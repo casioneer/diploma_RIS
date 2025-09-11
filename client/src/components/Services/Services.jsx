@@ -149,6 +149,7 @@ const Services = () => {
                                 data-aos="zoom-in"
                                 data-aos-duration="300"
                                 className="rounded-2xl bg-white dark:bg-gray-800  hover:bg-primary dark:hover:bg-primary hover:text-white relative shadow-xl duration-high group max-w-[300px]"
+                                key={service.id}
                             >
                                 <div className="h-[100px]">
                                     <img
@@ -166,7 +167,7 @@ const Services = () => {
                                 </div>
                                 <div className="text-center flex items-center justify-center p-4">
                                     <h1 className="pr-2">{service.price}</h1>
-                                    <button className=" bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white py-1 px-4 rounded-full flex items-center gap-3">
+                                    <button onClick={() => window.dispatchEvent(new CustomEvent('add-to-cart', { detail: { id: service.id, title: service.name, img: service.img, price: Number(service.price.replace(/[^0-9]/g,'')), amount: 1 } }))} className=" bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white py-1 px-4 rounded-full flex items-center gap-3">
                                         Добавить
                                     </button>
                                 </div>
@@ -174,15 +175,6 @@ const Services = () => {
                         ))}
 
                     </div>
-                    <div className="text-center mb-20 max-w-[400px] mx-auto m-8">
-
-                        <h1 className="text-3xl font-bold">Пиццы</h1>
-                        <p className="text-xs text-gray-400">
-                            Большой выбор пиц на любой вкус и кошелек.
-                            Добавляте в корзину и заказывайте!
-                        </p>
-                    </div>
-
                 </div>
 
             </div>

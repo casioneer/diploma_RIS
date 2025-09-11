@@ -7,27 +7,27 @@ const Menu = [
     {
         id: 1,
         name: "Главная",
-        link: "/#",
+        link: "#",
     },
     {
         id: 2,
         name: "Меню",
-        link: "/#services",
+        link: "#services",
     },
     {
         id: 3,
         name: "Информация",
-        link: "/#about",
+        link: "#about",
     },
 ];
-const Navbar = () => {
+const Navbar = ({ onCartClick, cartCount = 0, onNavigate }) => {
     return (
         <>
             <div className="shadow-md bg-white dark:bg-gray-900 dark:text-white duration-200">
                 <div className="container py-3 sm:py-0">
                     <div className="flex justify-between items-center">
                         <div>
-                            <a href="#" className="font-bold text-2xl sm:text-3xl flex gap-2">
+                            <a href="#" onClick={(e) => { e.preventDefault(); onNavigate && onNavigate("home"); }} className="font-bold text-2xl sm:text-3xl flex gap-2">
                                 <img src={Logo} alt="Logo" className="w-10" />
                                 Мята
                             </a>
@@ -41,6 +41,7 @@ const Navbar = () => {
                                     <li key={menu.id}>
                                         <a
                                             href={menu.link}
+                                            onClick={(e) => { e.preventDefault(); onNavigate && onNavigate(menu.link.replace('#','')); }}
                                             className="inline-block py-4 px-4 hover:text-green-500"
                                         >
                                             {menu.name}
@@ -48,10 +49,10 @@ const Navbar = () => {
                                     </li>
                                 ))}
                             </ul>
-                            <button className="bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white py-1 px-4 rounded-full flex items-center gap-3">
+                            <button onClick={onCartClick} className="bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white py-1 px-4 rounded-full flex items-center gap-3">
                                 Заказ
                                 <FaCartShopping className="text-xl text-white drop-shadow-sm cursor-pointer" />
-
+                                <span className="ml-1 bg-white/20 rounded-full px-2 text-sm">{cartCount}</span>
                             </button>
                         </div>
                     </div>

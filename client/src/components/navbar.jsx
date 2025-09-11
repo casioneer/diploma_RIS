@@ -1,4 +1,4 @@
-/*import React from "react";
+import React from "react";
 import "../styles/navbar.css";
 
 const Navbar = ({ setShow, size }) => {
@@ -19,5 +19,5 @@ const Navbar = ({ setShow, size }) => {
     );
 };
 
-export default Navbar; */
+export default Navbar;
 

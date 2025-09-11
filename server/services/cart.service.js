@@ -1,3 +1,4 @@
+const cartDb = require("../db/cart.db.js");
 const {
   createCartDb,
   getCartDb,
@@ -6,7 +7,12 @@ const {
   increaseItemQuantityDb,
   decreaseItemQuantityDb,
   emptyCartDb,
-} = require("../db/cart.db");
+} = cartDb;
+// Debug: ensure functions exist during development
+if (process.env.NODE_ENV === "development") {
+  // eslint-disable-next-line no-console
+  console.log("cart.db exports:", Object.keys(cartDb));
+}
 const { ErrorHandler } = require("../helpers/error");
 
 class CartService {
@@ -25,9 +31,17 @@ class CartService {
     }
   };
 
+  getCartById = async (cartId) => {
+    try {
+      return await cartDb.getCartByIdDb(cartId);
+    } catch (error) {
+      throw new ErrorHandler(error.statusCode, error.message);
+    }
+  };
+
   addItem = async (data) => {
     try {
-      return await addItemDb(data);
+      return await cartDb.addItemDb(data);
     } catch (error) {
       throw new ErrorHandler(error.statusCode, error.message);
     }
@@ -35,7 +49,7 @@ class CartService {
 
   removeItem = async (data) => {
     try {
-      return await deleteItemDb(data);
+      return await cartDb.deleteItemDb(data);
     } catch (error) {
       throw new ErrorHandler(error.statusCode, error.message);
     }
@@ -43,7 +57,7 @@ class CartService {
 
   increaseQuantity = async (data) => {
     try {
-      return await increaseItemQuantityDb(data);
+      return await cartDb.increaseItemQuantityDb(data);
     } catch (error) {
       throw new ErrorHandler(error.statusCode, error.message);
     }
@@ -51,14 +65,14 @@ class CartService {
 
   decreaseQuantity = async (data) => {
     try {
-      return await decreaseItemQuantityDb(data);
+      return await cartDb.decreaseItemQuantityDb(data);
     } catch (error) {
       throw new ErrorHandler(error.statusCode, error.message);
     }
   };
   emptyCart = async (cartId) => {
     try {
-      return await emptyCartDb(cartId);
+      return await cartDb.emptyCartDb(cartId);
     } catch (error) {
       throw new ErrorHandler(error.statusCode, error.message);
     }
