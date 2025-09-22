@@ -15,7 +15,8 @@ const verifyToken = (req, res, next) => {
   }
 
   try {
-    const verified = jwt.verify(token, process.env.SECRET);
+    const secret = process.env.SECRET || "dev_secret_key";
+    const verified = jwt.verify(token, secret);
     req.user = verified;
     next();
   } catch (error) {

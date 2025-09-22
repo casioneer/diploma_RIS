@@ -26,6 +26,13 @@ import Banner from "components/Banner/Banner";
 import Testimonial from "components/Testimonial/Testimonial"
 import AppStore from "components/AppStore/AppStore"
 import Footer from "components/Footer/Footer"
+import Orders from "./pages/Orders";
+import InfoWhyNoGloves from "./pages/InfoWhyNoGloves";
+import InfoCalories from "./pages/InfoCalories";
+import InfoSupplies from "./pages/InfoSupplies";
+import InfoFamousGuests from "./pages/InfoFamousGuests";
+import { AuthProvider } from "./context/AuthContext";
+import { CartProvider } from "./context/CartContext";
 
 // import App1 from "./App1"
 
@@ -36,35 +43,6 @@ import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [showCart, setShowCart] = useState(false);
-  const [cart, setCart] = useState([]);
-
-  const handleAddToCart = (item) => {
-    const exists = cart.find((x) => x.id === item.id);
-    if (exists) {
-      setCart(cart.map((x) => (x.id === item.id ? { ...x, amount: x.amount + 1 } : x)));
-    } else {
-      setCart([...cart, { ...item, amount: item.amount ?? 1 }]);
-    }
-  };
-
-  const handleChange = (item, delta) => {
-    setCart((prev) => {
-      return prev
-        .map((x) => (x.id === item.id ? { ...x, amount: Math.max(1, (x.amount ?? 1) + delta) } : x))
-        .filter((x) => x.amount > 0);
-    });
-  };
-
-  const cartCount = cart.reduce((sum, x) => sum + (x.amount ?? 1), 0);
-
-  React.useEffect(() => {
-    const handler = (e) => {
-      const item = e.detail;
-      handleAddToCart(item);
-    };
-    window.addEventListener('add-to-cart', handler);
-    return () => window.removeEventListener('add-to-cart', handler);
-  }, [cart]);
 
   const handleNavigate = (target) => {
     setShowCart(false);
@@ -79,24 +57,49 @@ function App() {
     }
   };
 
+  React.useEffect(() => {
+    const openCartHandler = () => setShowCart(true);
+    window.addEventListener('open-cart', openCartHandler);
+    document.addEventListener('open-cart', openCartHandler);
+    return () => {
+      window.removeEventListener('open-cart', openCartHandler);
+      document.removeEventListener('open-cart', openCartHandler);
+    }
+  }, []);
+
   return (
-    <>
-      <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
-        <Navbar onCartClick={() => setShowCart((v) => !v)} cartCount={cartCount} onNavigate={handleNavigate} />
-        {!showCart && (
-          <>
-            <Hero />
-            <Services />
-            <Banner />
-            <AppStore />
-            <Testimonial />
-            <span id="about"></span>
-          </>
-        )}
-        {showCart && <Cart cart={cart} setCart={setCart} handleChange={handleChange} />}
-        <Footer />
-      </div>
-    </>
+    <AuthProvider>
+      <CartProvider>
+        <div className="bg-white dark:bg-gray-900 dark:text-white duration-200">
+          <Routes>
+            <Route path="/" element={
+              <>
+                <Navbar onCartClick={() => setShowCart((v) => !v)} onNavigate={handleNavigate} />
+                {!showCart && (
+                  <>
+                    <Hero />
+                    <Services />
+                    <Banner />
+                    <AppStore />
+                    <div id="testimonial"><Testimonial /></div>
+                    <span id="about"></span>
+                  </>
+                )}
+                {showCart && <Cart onClose={() => setShowCart(false)} />}
+                <Footer />
+              </>
+            } />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/info/why-no-gloves" element={<InfoWhyNoGloves />} />
+            <Route path="/info/calories" element={<InfoCalories />} />
+            <Route path="/info/supplies" element={<InfoSupplies />} />
+            <Route path="/info/famous" element={<InfoFamousGuests />} />
+            <Route path="/test" element={<Test />} />
+          </Routes>
+          <Toaster position="top-right" />
+        </div>
+      </CartProvider>
+    </AuthProvider>
     //     <Suspense
     //       fallback={
     //         <Layout>

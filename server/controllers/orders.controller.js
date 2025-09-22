@@ -6,6 +6,8 @@ const createOrder = async (req, res) => {
   const userId = req.user.id;
   const cartId = req.user.cart_id;
 
+  // itemTotal должен отражать суммарное количество единиц товаров
+  // если клиент не прислал корректное значение, можно пересчитать на сервере при необходимости
   const newOrder = await orderService.createOrder({
     cartId,
     amount,

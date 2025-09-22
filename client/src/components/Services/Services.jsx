@@ -77,57 +77,76 @@ import Img3 from "../../assets/pizza-mushrooms.png";
 import Img4 from "../../assets/pizza-hawaii.png";
 import Img5 from "../../assets/pizza-heart.png";
 import Img6 from "../../assets/pizza-4-cheese.png";
+import { useCart } from "../../context/CartContext";
+import { useAuth } from "../../context/AuthContext";
 const ServicesData = [
     {
         id: 1,
+        product_id: 1,
         img: Img2,
         name: "4 СЫРА",
         description:
             "Пицца с пармезаном, моцареллой и чеддером - все что нужно!",
-        price: "450 ₽",
+        price: 450,
     },
     {
         id: 2,
+        product_id: 2,
         img: Img,
         name: "ПЕППЕРОНИ",
         description:
             "Пицца с пепперони и травами - остро и сочно!",
-        price: "680 ₽",
+        price: 680,
     },
     {
         id: 3,
+        product_id: 3,
         img: Img3,
         name: "ГРИБНАЯ",
         description:
             "Шампиньоны, оливки и травы - непередоваемо свежо!",
-        price: "600 ₽",
+        price: 600,
     },
     {
         id: 4,
+        product_id: 4,
         img: Img4,
         name: "ГАВАЙСКАЯ",
         description:
             "Пицца с ананасами и свежими оващами - яркий вкус!",
-        price: "550 ₽",
+        price: 550,
     },
     {
         id: 5,
+        product_id: 5,
         img: Img5,
         name: "СЕРДЦЕ",
         description:
             "Пицца в виде сердца - удиви своих близких!",
-        price: "660 ₽",
+        price: 660,
     },
     {
         id: 6,
+        product_id: 6,
         img: Img6,
         name: "8 СЫРОВ",
         description:
             "Пицца с восьмью сырами, ведь сыра много не бывает!",
-        price: "610 ₽",
+        price: 610,
     },
 ];
 const Services = () => {
+    const { addToCart } = useCart();
+    const { isAuthenticated } = useAuth();
+
+    const handleAddToCart = (service) => {
+        if (!isAuthenticated) {
+            alert('Войдите в систему для добавления товаров в корзину');
+            return;
+        }
+        addToCart(service);
+    };
+
     return (
         <>
             <span id="services"></span>
@@ -166,8 +185,11 @@ const Services = () => {
                                     </p>
                                 </div>
                                 <div className="text-center flex items-center justify-center p-4">
-                                    <h1 className="pr-2">{service.price}</h1>
-                                    <button onClick={() => window.dispatchEvent(new CustomEvent('add-to-cart', { detail: { id: service.id, title: service.name, img: service.img, price: Number(service.price.replace(/[^0-9]/g,'')), amount: 1 } }))} className=" bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white py-1 px-4 rounded-full flex items-center gap-3">
+                                    <h1 className="pr-2">{service.price} ₽</h1>
+                                    <button 
+                                        onClick={() => handleAddToCart(service)} 
+                                        className="bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white py-1 px-4 rounded-full flex items-center gap-3"
+                                    >
                                         Добавить
                                     </button>
                                 </div>

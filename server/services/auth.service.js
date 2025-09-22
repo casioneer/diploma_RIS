@@ -291,7 +291,8 @@ class AuthService {
 
   async signToken(data) {
     try {
-      return jwt.sign(data, process.env.SECRET, { expiresIn: "60s" });
+      const secret = process.env.SECRET || "dev_secret_key";
+      return jwt.sign(data, secret, { expiresIn: "60s" });
     } catch (error) {
       logger.error(error);
       throw new ErrorHandler(500, "An error occurred");
@@ -300,7 +301,8 @@ class AuthService {
 
   async signRefreshToken(data) {
     try {
-      return jwt.sign(data, process.env.REFRESH_SECRET, { expiresIn: "1h" });
+      const refreshSecret = process.env.REFRESH_SECRET || "dev_refresh_secret_key";
+      return jwt.sign(data, refreshSecret, { expiresIn: "1h" });
     } catch (error) {
       logger.error(error);
       throw new ErrorHandler(500, error.message);
@@ -309,7 +311,8 @@ class AuthService {
 
   async verifyRefreshToken(token) {
     try {
-      const payload = jwt.verify(token, process.env.REFRESH_SECRET);
+      const refreshSecret = process.env.REFRESH_SECRET || "dev_refresh_secret_key";
+      const payload = jwt.verify(token, refreshSecret);
       return {
         id: payload.id,
         roles: payload.roles,

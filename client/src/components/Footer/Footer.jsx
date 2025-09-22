@@ -19,26 +19,26 @@ const Footer = () => {
       items: [
         { text: "Главная", href: "#" },
         { text: "Меню", href: "#services" },
-        { text: "Информация", href: "#about" },
-        { text: "Заказ", href: "#", onClick: (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); } },
+        { text: "Отзывы", href: "#testimonial" },
+        { text: "Корзина", href: "#", onClick: (e) => { e.preventDefault(); document.dispatchEvent(new CustomEvent('open-cart')); } },
       ],
     },
     {
       title: "Интересное",
       items: [
-        "Почему готовим без перчаток",
-        "Калорийность еды",
-        "Поставки",
-        "Известные посетители",
+        { text: "Почему готовим без перчаток", href: "/info/why-no-gloves" },
+        { text: "Калорийность еды", href: "/info/calories" },
+        { text: "Поставки", href: "/info/supplies" },
+        { text: "Известные посетители", href: "/info/famous" },
       ],
     },
     {
       title: "Соцсети",
       items: [
-        { text: "VK", href: "#" },
-        { text: "Ask.FM", href: "#" },
-        { text: "Telegram", href: "#" },
-        { text: "Reddit", href: "#" },
+        { text: "О пицце в Википедии", href: "https://ru.wikipedia.org/wiki/%D0%9F%D0%B8%D1%86%D1%86%D0%B0" },
+        { text: "История пиццы", href: "https://www.britannica.com/topic/pizza" },
+        { text: "Статьи о пицце", href: "https://www.seriouseats.com/pizza" },
+        { text: "Рецепты пиццы", href: "https://www.bonappetit.com/recipes/slideshow/pizza-recipes" },
       ],
     },
   ];

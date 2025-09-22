@@ -12,13 +12,13 @@ const testimonialData = [
         img: Img1,
     },
     {
-        id: 1,
+        id: 2,
         name: "Анастасия",
         text: " В Мяте я всегда нахожу что-то новое и интересное. Очень рекомендую!",
         img: Img,
     },
     {
-        id: 1,
+        id: 3,
         name: "Дмитрий",
         text: "Служба доставки в Мяте отличная, пицца приходит вовремя. Отличный выбор!",
         img: Img2,
@@ -61,9 +61,8 @@ const Testimonial = () => {
                         <Slider {...settings}>
                             {testimonialData.map((data) => {
                                 return (
-                                    <div className="my-6">
+                                    <div className="my-6" key={data.id}>
                                         <div
-                                            key={data.id}
                                             className="flex flex-col justify-center items-center gap-4 text-center   shadow-lg p-4 mx-4 rounded-xl dark:bg-gray-800 bg-primary/10 relative"
                                         >
                                             <img

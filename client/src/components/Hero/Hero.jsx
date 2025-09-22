@@ -125,7 +125,7 @@ const Hero = () => {
                         >
                             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold">
                                 Добро пожаловать в{" "}
-                                <span class="bg-clip-text text-transparent bg-gradient-to-b from-primary to-secondary">
+                                <span className="bg-clip-text text-transparent bg-gradient-to-b from-primary to-secondary">
                                     Мятную
                                 </span>{" "}
                                 зону
@@ -135,9 +135,9 @@ const Hero = () => {
                                 города по доступной цене
                             </p>
                             <div>
-                                <button className="bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white py-2 px-4 rounded-full">
+                                <a href="#services" onClick={(e)=>{e.preventDefault(); const el=document.getElementById('services'); if(el){ el.scrollIntoView({behavior:'smooth', block:'start'});} }} className="inline-block bg-gradient-to-r from-primary to-secondary hover:scale-105 duration-200 text-white py-2 px-4 rounded-full">
                                     Закажи сейчас
-                                </button>
+                                </a>
                             </div>
                         </div>
                         <div className="min-h-[450px] sm:min-h-[450px] flex justify-center items-center relative order-1 sm:order-2 ">
@@ -154,6 +154,7 @@ const Hero = () => {
                             <div className="flex lg:flex-col lg:top-1/2 lg:-translate-y-1/2 lg:py-2 justify-center gap-4 absolute bottom-[0px] lg:-right-10 bg-white/30 rounded-full">
                                 {ImageList.map((item) => (
                                     <img
+                                        key={item.id}
                                         data-aos="zoom-in"
                                         data-aos-duration="400"
                                         data-aos-once="true"

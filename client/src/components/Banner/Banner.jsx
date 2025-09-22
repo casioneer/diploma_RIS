@@ -39,13 +39,13 @@ const Banner = () => {
                                 </h1>
                                 <p className="text-sm text-gray-500 tracking-wide leading-5">
                                     Мята может доставить пиццу в виде сердца Вашим самым дорогим людям.
-                                    <p>Эта пицца приятно удивит ваших родных и близких!</p>
+                                    <span className="block">Эта пицца приятно удивит ваших родных и близких!</span>
                                     <br />
                                     <br />
                                     Начинку для нее вы можете выбрать сами:
-                                    <p>Хотите поострее - выбирайте ПЕППЕРОНИ!</p>
-                                    <p>Хотите много сыра - выбирайте 4 СЫРА!</p>
-                                    <p>Хотите по-итальянски - берите ГРИБНУЮ!</p>
+                                    <span className="block">Хотите поострее - выбирайте ПЕППЕРОНИ!</span>
+                                    <span className="block">Хотите много сыра - выбирайте 4 СЫРА!</span>
+                                    <span className="block">Хотите по-итальянски - берите ГРИБНУЮ!</span>
                                 </p>
                                 <div className="flex gap-6">
                                     <div>
@@ -59,9 +59,13 @@ const Banner = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <button className="bg-gradient-to-r from-primary to-secondary text-white py-2 px-4 rounded-full shadow-xl hover:shadow-md">
-                                        Закажи сейчас!
-                                    </button>
+                                    <a
+                                      href="#services"
+                                      onClick={(e)=>{e.preventDefault(); const el=document.getElementById('services'); if(el){ el.scrollIntoView({behavior:'smooth', block:'start'});} }}
+                                      className="inline-block bg-gradient-to-r from-primary to-secondary text-white py-2 px-4 rounded-full shadow-xl hover:shadow-md"
+                                    >
+                                      Закажи сейчас!
+                                    </a>
                                 </div>
                             </div>
                         </div>
